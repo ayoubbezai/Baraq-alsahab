@@ -29,7 +29,7 @@ const Navbar = () => {
             <nav className={`bg-primary text-white p-3 shadow-2xl ${language === "en" ? "ltr font-english" : "rtl"}`}>
                 <div className={`container mx-auto flex ${language === "ar" ? "flex-row-reverse" : "flex-row"} justify-between items-center`}>
                     {/* Logo */}
-                    <img src={language === "ar" ? LogoArabic : LogoEnglish} alt="Logo" className="h-10" />
+                    <img src={language === "ar" ? LogoArabic : LogoEnglish} alt="Logo" className="h-10 w-26" />
 
                     {/* Desktop Navigation */}
                     <ul className={`gap-5 hidden lg:flex ${language === "ar" ? "flex-row-reverse" : "text-sm"}`}>

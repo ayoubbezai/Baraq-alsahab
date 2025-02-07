@@ -17,7 +17,7 @@ const HeroSection = () => {
 
             </div>
             <div className=" w-full sm:w-3/4 md:2/3 lg:w-1/2  flex flex-col gap-6 justify-start  items-center">
-                <img src={Logo} alt="Logo" className="h-28 mr-6" />
+                <img src={Logo} alt="Logo" className="h-28 w-40 mr-6" />
                 <div className='flex flex-col gap-4 mb-8'>
                     <h1 className='text-7xl font-bold'>{heroContent[language].title}</h1>
                     <h2 className='text-5xl font-semibold text-secondary'>{heroContent[language].subtitle}</h2>
