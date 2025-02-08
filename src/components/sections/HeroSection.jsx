@@ -3,7 +3,7 @@ import { LanguageContext } from '../../states/LanguageContext';
 import heroContent from '../../content/heroContent';
 import Background from '../../assets/background/hero-section-main.webp';
 import Logo from '../../assets/logo/white logo.webp';
-import BackgroundPhone from '../../assets/background/hero3.webp';
+import BackgroundPhone from '../../assets/background/hero2.webp';
 import { Button } from '../ui/button';
 import { motion } from "framer-motion";
 
@@ -45,7 +45,7 @@ const HeroSection = () => {
                             whileInView={{ x: 0, opacity: 1 }}
                             initial={{ x: 150, opacity: 0 }}
                             transition={{ duration: 0.9 }}
-                            className='text-7xl font-bold'
+                            className='text-5xl md:text-7xl font-bold'
                         >
                             {heroContent[language].title}
                         </motion.h1>
@@ -53,7 +53,7 @@ const HeroSection = () => {
                             whileInView={{ x: 0, opacity: 1 }}
                             initial={{ x: -150, opacity: 0 }}
                             transition={{ duration: 0.9 }}
-                            className='text-5xl font-semibold text-secondary'
+                            className='text-3xl md:text-5xl font-semibold text-secondary'
                         >
                             {heroContent[language].subtitle}
                         </motion.h2>
