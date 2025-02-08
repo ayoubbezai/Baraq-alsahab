@@ -212,7 +212,9 @@ const Navbar = () => {
 
 
                         <motion.li whileHover={{ scale: 1.1 }}>
-                            <button onClick={() => toggleLanguage(language === "ar" ? "en" : "ar")} className="flex items-center gap-2 mb-2 text-sm font-medium">
+                            <button onClick={() => {
+                                setIsNavOpen(false);
+                                toggleLanguage(language === "ar" ? "en" : "ar")}} className="flex items-center gap-2 mb-2 text-sm font-medium">
                                 <img src={language === "ar" ? ukFlag : saFlag} alt="Flag" className="w-5 h-3" />
                                 {language === "ar" ? "English" : "عربي"}
                             </button>
