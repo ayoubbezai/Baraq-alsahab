@@ -16,7 +16,7 @@ const OurClients = () => {
     const { language } = useContext(LanguageContext);
 
     return (
-        <div className={`font-english overflow-hidden ${language === "ar" ? "font-arabic text-right" : ""}`}>
+        <div className={`font-english overflow-hidden mb-12 ${language === "ar" ? "font-arabic text-right" : ""}`}>
             <motion.h3
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
