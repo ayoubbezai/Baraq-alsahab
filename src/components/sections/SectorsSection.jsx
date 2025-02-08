@@ -31,7 +31,7 @@ const SectorsSection = () => {
                     transition={{ duration: 0.9, delay: 0.1 }}
                     className="font-semibold text-lg mr-12 relative"
                 >
-                    {content.title}
+                    {content.title}&nbsp;
                     <span className="absolute bottom-2 w-12 h-[3px] bg-white"></span>
                 </motion.h2>
 
