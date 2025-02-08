@@ -9,7 +9,7 @@ const HowWeWork = () => {
     const { language } = useContext(LanguageContext);
 
     return (
-        <section className={`py-8 px-6 md:pb-28 font-english overflow-hidden ${language === "ar" ? "font-arabic text-right" : ""}`}>
+        <section className={`py-8 px-6 md:pb-12 font-english overflow-hidden ${language === "ar" ? "font-arabic text-right" : ""}`}>
             <div className="max-w-6xl mx-auto text-center">
                 {/* Section Title */}
                 <motion.h2

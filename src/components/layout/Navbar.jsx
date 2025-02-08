@@ -52,21 +52,59 @@ const Navbar = () => {
 
                     {/* Desktop Navigation with Animation */}
                     <ul className={`gap-5 hidden lg:flex ${language === "ar" ? "flex-row-reverse" : "text-sm"}`}>
-                        {["/", "/about", "/services", "/fleet", "/contact"].map((path, index) => (
-                            <motion.li
-                                key={path}
-                                custom={index}
-                                variants={navItemVariants}
-                                initial="hidden"
-                                animate="visible"
+                        <motion.li variants={navItemVariants} initial="hidden" animate="visible">
+                            <Link
+                                onClick={() => {
+                                    setIsNavOpen(false);
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                }}
+                                className="hover:text-secondary-light"
                             >
-                                <Link to={path} className="hover:text-secondary-light">
-                                    {language === "ar"
-                                        ? ["الرئيسية", "من نحن", "خدماتنا", "انضم إلى أسطولنا", "اتصل بنا"][index]
-                                        : ["Home", "About Us", "Our Services", "Join Our Fleet", "Contact Us"][index]}
-                                </Link>
-                            </motion.li>
-                        ))}
+                                {language === "ar" ? "الرئيسية" : "Home"}
+                            </Link>
+                        </motion.li>
+                        <motion.li variants={navItemVariants} initial="hidden" animate="visible">
+                            <Link
+                                onClick={() => {
+                                    setIsNavOpen(false);
+                                    window.scrollTo({ top: 600, behavior: "smooth" });
+                                }}
+                                className="hover:text-secondary-light"
+                            >
+                                {language === "ar" ? "من نحن" : "About Us"}
+                            </Link>
+                        </motion.li>
+                        <motion.li variants={navItemVariants} initial="hidden" animate="visible">
+                            <Link
+                                onClick={() => {
+                                    setIsNavOpen(false);
+                                    window.scrollTo({ top: 2000, behavior: "smooth" });
+                                }}
+                                className="hover:text-secondary-light"
+                            >
+                                {language === "ar" ? "خدماتنا" : "Our Services"}
+                            </Link>
+                        </motion.li>
+                        <motion.li variants={navItemVariants} initial="hidden" animate="visible">
+                            <Link
+                                to={"/joinUs"}
+                                className="hover:text-secondary-light"
+                            >
+                                {language === "ar" ? "انضم إلى أسطولنا" : "Join Our Fleet"}
+                            </Link>
+                        </motion.li>
+                        <motion.li variants={navItemVariants} initial="hidden" animate="visible">
+                            <Link
+                                onClick={() => {
+                                    setIsNavOpen(false);
+                                    window.scrollTo({ top: 5000, behavior: "smooth" });
+                                }}
+                                className="hover:text-secondary-light"
+                            >
+                                {language === "ar" ? "اتصل بنا" : "Contact Us"}
+                            </Link>
+                        </motion.li>
+
                     </ul>
 
                     {/* Tracking & Language Selector with Motion */}
@@ -119,21 +157,59 @@ const Navbar = () => {
                         transition={{ duration: 0.5 }}
                         className="flex flex-col items-center gap-8 pt-4 lg:hidden"
                     >
-                        {["/", "/about", "/services", "/fleet", "/contact"].map((path, index) => (
-                            <motion.li
-                                key={path}
-                                custom={index}
-                                variants={navItemVariants}
-                                initial="hidden"
-                                animate="visible"
+                        <motion.li variants={navItemVariants} initial="hidden" animate="visible">
+                            <Link
+                                onClick={() => {
+                                    setIsNavOpen(false);
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                }}
+                                className="hover:text-secondary-light"
                             >
-                                <Link to={path} onClick={() => setIsNavOpen(false)} className="hover:text-secondary-light">
-                                    {language === "ar"
-                                        ? ["الرئيسية", "من نحن", "خدماتنا", "انضم إلى أسطولنا", "اتصل بنا"][index]
-                                        : ["Home", "About Us", "Our Services", "Join Our Fleet", "Contact Us"][index]}
-                                </Link>
-                            </motion.li>
-                        ))}
+                                {language === "ar" ? "الرئيسية" : "Home"}
+                            </Link>
+                        </motion.li>
+                        <motion.li variants={navItemVariants} initial="hidden" animate="visible">
+                            <Link
+                                onClick={() => {
+                                    setIsNavOpen(false);
+                                    window.scrollTo({ top: 600, behavior: "smooth" });
+                                }}
+                                className="hover:text-secondary-light"
+                            >
+                                {language === "ar" ? "من نحن" : "About Us"}
+                            </Link>
+                        </motion.li>
+                        <motion.li variants={navItemVariants} initial="hidden" animate="visible">
+                            <Link
+                                onClick={() => {
+                                    setIsNavOpen(false);
+                                    window.scrollTo({ top: 2000, behavior: "smooth" });
+                                }}
+                                className="hover:text-secondary-light"
+                            >
+                                {language === "ar" ? "خدماتنا" : "Our Services"}
+                            </Link>
+                        </motion.li>
+                        <motion.li variants={navItemVariants} initial="hidden" animate="visible">
+                            <Link
+                                to={"/joinUs"}
+                                className="hover:text-secondary-light"
+                            >
+                                {language === "ar" ? "انضم إلى أسطولنا" : "Join Our Fleet"}
+                            </Link>
+                        </motion.li>
+                        <motion.li variants={navItemVariants} initial="hidden" animate="visible">
+                            <Link
+                                onClick={() => {
+                                    setIsNavOpen(false);
+                                    window.scrollTo({ top: 5000, behavior: "smooth" });
+                                }}
+                                className="hover:text-secondary-light"
+                            >
+                                {language === "ar" ? "اتصل بنا" : "Contact Us"}
+                            </Link>
+                        </motion.li>
+
 
                         <motion.li whileHover={{ scale: 1.1 }}>
                             <button onClick={() => toggleLanguage(language === "ar" ? "en" : "ar")} className="flex items-center gap-2 mb-2 text-sm font-medium">
@@ -143,6 +219,7 @@ const Navbar = () => {
                         </motion.li>
                     </motion.ul>
                 )}
+
             </nav>
         </>
     );
