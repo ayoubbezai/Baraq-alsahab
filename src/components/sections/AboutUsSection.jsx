@@ -20,7 +20,7 @@ const AboutUsSection = () => {
                     transition={{ duration: 0.9, delay: 0.001 }}
                     src={AboutUsImage}
                     alt="About Us"
-                    className="w-11/12 h-full  mx-auto  lg:mt-12 object-cover"
+                    className="w-72 md:w-11/12 h-full  mx-auto  lg:mt-12 object-cover"
                 />
             </div>
 

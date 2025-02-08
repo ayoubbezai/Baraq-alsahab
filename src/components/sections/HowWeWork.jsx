@@ -48,7 +48,7 @@ const HowWeWork = () => {
                 <motion.img
                     src={firstGif}
                     alt="Process Step 1"
-                    className="mx-auto w-2/3"
+                    className="mx-auto w-72 md:w-2/3"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
@@ -57,7 +57,7 @@ const HowWeWork = () => {
                 <motion.img
                     src={secendGif}
                     alt="Process Step 2"
-                    className="mx-auto w-2/3"
+                    className="mx-auto  w-72 md:w-2/3"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
@@ -66,7 +66,7 @@ const HowWeWork = () => {
                 <motion.img
                     src={thirdGif}
                     alt="Process Step 3"
-                    className="mx-auto w-2/3"
+                    className="mx-auto  w-72 md:w-2/3"
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.7 }}
