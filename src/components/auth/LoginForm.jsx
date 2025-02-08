@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useAuth } from '../../states/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '../ui/button';
+import logo from "../../assets/logo/logo english yellow.svg"
 
 const LoginForm = () => {
   const { login, currentUser } = useAuth();
@@ -11,11 +13,11 @@ const LoginForm = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (currentUser) {
-      navigate("/dashboard");
-    }
-  }, [currentUser, navigate]);
+  // useEffect(() => {
+  //   if (currentUser) {
+  //     navigate("/dashboard");
+  //   }
+  // }, [currentUser, navigate]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -38,35 +40,42 @@ const LoginForm = () => {
 
   return (
     <div className='flex justify-center items-center min-h-screen bg-gray-100'>
-      <div className='bg-white shadow-lg rounded-lg p-6 w-full max-w-md'>
-        <h2 className='text-xl font-semibold mb-4 text-gray-700 text-center'>Login</h2>
-        {error && <p className='text-red-500 text-center'>{error}</p>}
-        {message && <p className='text-green-500 text-center'>{message}</p>}
-        <form onSubmit={handleSubmit} className='space-y-4'>
-          <input
-            type="email"
-            placeholder='Email'
-            ref={emailRef}
-            required
-            className='w-full p-2 border rounded bg-transparent placeholder-gray-400 border-gray-400'
-          />
-          <input
-            type="password"
-            placeholder='Password'
-            ref={passwordRef}
-            required
-            className='w-full p-2 border rounded bg-transparent placeholder-gray-400 border-gray-400'
-          />
-          <button
-            type='submit'
-            disabled={loading}
-            className='w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600 disabled:bg-gray-400'
-          >
-            {loading ? "Logging in..." : "Login"}
-          </button>
-        </form>
+      <div className='flex flex-col md:flex-row bg-primary p-6 shadow-lg rounded-lg'>
+        <div className='flex  justify-center items-center w-1/2 mx-auto'>
+          <img src={logo} alt="logo" className='w-40 md:w-72 md:h-64' />
+        </div>
+
+        <div className='   p-8 md:px-12 w-full max-w-md'>
+          <h2 className='text-xl font-semibold mb-4 text-white text-center'>Login</h2>
+          {error && <p className='text-red-500 text-center'>{error}</p>}
+          {message && <p className='text-green-500 text-center'>{message}</p>}
+          <form onSubmit={handleSubmit} className='space-y-4'>
+            <input
+              type="email"
+              placeholder='Email'
+              ref={emailRef}
+              required
+              className='w-full p-2 border rounded bg-transparent placeholder-gray-400 border-gray-400'
+            />
+            <input
+              type="password"
+              placeholder='Password'
+              ref={passwordRef}
+              required
+              className='w-full p-2 border rounded bg-transparent placeholder-gray-400 border-gray-400'
+            />
+            <Button
+              type='submit'
+              disabled={loading}
+              className='w-full text-white font-semibold'
+            >
+              {loading ? "Logging in..." : "Login"}
+            </Button>
+          </form>
+        </div>
       </div>
     </div>
+
   );
 };
 
