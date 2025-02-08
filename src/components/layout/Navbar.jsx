@@ -113,10 +113,13 @@ const Navbar = () => {
                     {/* Tracking & Language Selector with Motion */}
                     <motion.div className="hidden lg:flex items-center z-10 gap-4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}>
                         <motion.div whileHover={{ scale: 1.1 }}>
-                            <Button variant="secondary" className="font-semibold">
-                                {language === "ar" ? "تتبع شحنتك" : "Track your shipment"}
-                            </Button>
+                            <Link to="/shipment">
+                                <Button variant="secondary" className="font-semibold">
+                                    {language === "ar" ? "تتبع شحنتك" : "Track your shipment"}
+                                </Button>
+                            </Link>
                         </motion.div>
+
 
                         <div className="relative">
                             <button onClick={() => setIsOpen(!isOpen)} className="flex items-center gap-2 text-sm font-medium">

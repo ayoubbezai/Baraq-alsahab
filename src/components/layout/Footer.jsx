@@ -55,13 +55,13 @@ const Footer = () => {
                     >
                         <div className={`flex flex-col gap-3 ${language === "ar" && "items-end  text-right"}  `}>
                             <img src={language === "ar" ? arabicLogo : englishLogo} alt="logo" className='w-40 h-20' />
-                            <p className={`flex flex-row-reverse items-center gap-2 text-gray-300`}>
+                            <p className={`flex ${language === "ar" && "flex-row-reverse"} items-center gap-2 text-gray-300`}>
                                 <FaEnvelope className="text-gray-300" /> email@example.com
                             </p>
-                            <p className={`flex flex-row-reverse items-center gap-2 text-gray-300`}>
+                            <p className={`flex ${language === "ar" && "flex-row-reverse"}items-center gap-2 text-gray-300`}>
                                 <FaPhoneAlt className="text-gray-300" /> +123 456 7890
                             </p>
-                            <p className={`flex flex-row-reverse items-center gap-2 text-gray-300`}>
+                            <p className={`flex  ${language === "ar" && "flex-row-reverse"} items-center gap-2 text-gray-300`}>
                                 <FaMapMarkerAlt className="text-gray-300" /> 123 Street, City, Country
                             </p>
                         </div>
