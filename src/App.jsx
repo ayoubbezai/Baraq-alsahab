@@ -5,6 +5,7 @@ import AboutUsSection from "./components/sections/AboutUsSection"
 import WhyUsSection from "./components/sections/WhyUsSection"
 import OurServices from "./components/sections/OurServices"
 import SectorsSection from "./components/sections/SectorsSection"
+import HowWeWork from "./components/sections/HowWeWork"
 import { LanguageProvider } from './states/LanguageContext';
 
 
@@ -17,6 +18,7 @@ function App() {
       <WhyUsSection />
       <OurServices />
       <SectorsSection />
+      <HowWeWork />
     </LanguageProvider>
 
   );
