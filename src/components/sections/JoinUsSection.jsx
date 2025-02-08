@@ -52,9 +52,12 @@ const JoinUsSection = () => {
                     className="text-base leading-relaxed text-white ">
                     {joinUsContent[language].content}
                 </motion.p>
-                <Link
+                <motion.Link
+                    whileInView={{ x: 0, opacity: 1 }}
+                    initial={{ x: 50, opacity: 0 }}
+                    transition={{ duration: 0.9, delay: 0.001 }}
                     to={"/joinUs"}
-                    className="bg-secondary text-white text-sm font-medium px-4 py-2  transition-all duration-300 hover:bg-opacity-90 shadow-md inline-block w-32 text-center self-center rounded-md mt-2">{joinUsContent[language].buttonText}</Link>
+                    className="bg-secondary text-white text-sm font-medium px-4 py-2  transition-all duration-300 hover:bg-opacity-90 shadow-md inline-block w-32 text-center self-center rounded-md mt-2">{joinUsContent[language].buttonText}</motion.Link>
             </div>
         </div>
     )
