@@ -38,7 +38,7 @@ const Navbar = () => {
             </Helmet>
 
             <nav className={`bg-primary fixed z-50  w-full text-white p-3 shadow-2xl overflowy-x-hidden ${language === "en" ? "ltr font-english" : "rtl"}`}>
-                <div className={`container mx-auto flex ${language === "ar" ? "flex-row-reverse" : "flex-row"} justify-between items-center`}>
+                <div className={`container mx-auto flex  ${language === "ar" ? "flex-row-reverse" : "flex-row"} justify-between items-center`}>
 
                     {/* Logo with Motion */}
                     <motion.img
@@ -151,7 +151,7 @@ const Navbar = () => {
                         onClick={() => setIsNavOpen(!isNavOpen)}
                         className="lg:hidden"
                     >
-                        <img src={MenuIcon} alt="Menu Icon" className="h-8 cursor-pointer" />
+                        <img src={MenuIcon} alt="Menu Icon" className="h-8 w-8 cursor-pointer" />
                     </motion.button>
                 </div>
 
