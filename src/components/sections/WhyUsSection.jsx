@@ -36,7 +36,7 @@ const WhyUsSection = () => {
     };
 
     return (
-        <section className={`py-8 md:py-16 px-6 bg-gray-100 font-english ${language === "ar" && "font-arabic text-right"}`}>
+        <section className={`py-8 md:pb-16 px-6 bg-gray-100 font-english ${language === "ar" && "font-arabic text-right"}`}>
             <div className="max-w-6xl mx-auto text-center">
                 <motion.h2
                     whileInView={{ x: 0, opacity: 1 }}
