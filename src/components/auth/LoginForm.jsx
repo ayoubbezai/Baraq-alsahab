@@ -40,7 +40,7 @@ const LoginForm = () => {
 
   return (
     <div className='flex justify-center items-center min-h-screen  bg-gray-100'>
-      <div className='flex flex-col md:flex-row bg-primary p-6 mx-6 shadow-lg rounded-lg'>
+      <div className='flex flex-col md:flex-row bg-primary py-6 px-2 md:p-6 mx-2 md:mx-6 shadow-lg rounded-lg'>
         <div className='flex  justify-center items-center w-1/2 mx-auto'>
           <img src={logo} alt="logo" className='w-40 md:w-72 md:h-64' />
         </div>
