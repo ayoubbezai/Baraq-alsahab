@@ -6,40 +6,33 @@ const whyUsContent = {
       {
         title: "Quality",
         content: "We are committed to excellence in service.",
-        logo: "",
       },
       {
         title: "Care",
         content: "We care about our customers, colleagues, and communities.",
-        logo: "",
       },
       {
         title: "Results",
         content: "We make a difference, quickly.",
-        logo: "",
       },
       {
         title: "Integrity",
         content: "Doing the right thing, now.",
-        logo: "",
       },
       {
         title: "Our Customers",
         content:
           "We strive to build and develop long-term relationships with our customers based on trust and service excellence.",
-        logo: "",
       },
       {
         title: "Our Team Members",
         content:
           "We believe in creating and maintaining a great workplace for our team members, who represent the face and spirit of Bariq Al Sahab.",
-        logo: "",
       },
       {
         title: "Our Communities",
         content:
           "We care about our communities and environment by giving back and making our planet more sustainable for future generations.",
-        logo: "",
       },
     ],
   },
@@ -50,40 +43,33 @@ const whyUsContent = {
       {
         title: "الجودة",
         content: "نحن نلتزم بالتميز في الخدمة",
-        logo: "",
       },
       {
         title: "الرعاية",
         content: "نحن نهتم بعملائنا وزملائنا ومجتمعاتنا",
-        logo: "",
       },
       {
         title: "النتائج",
         content: "نحن نصنع الفرق، بسرعة",
-        logo: "",
       },
       {
         title: "النزاهة",
         content: "فعل الشيء الصحيح، الآن",
-        logo: "",
       },
       {
         title: "عملاؤنا",
         content:
           "نحن نسعى جاهدين لبناء وتطوير علاقات طويلة الأمد مع العملاء، مبنية على الثقة والتميز في الخدمة",
-        logo: "",
       },
       {
         title: "أعضاء فريقنا",
         content:
           "نحن نؤمن بأهمية إنشاء مكان رائع للعمل والحفاظ عليه لأعضاء فريقنا، الذين يمثلون وجه برق السحاب والحياة فيها.",
-        logo: "",
       },
       {
         title: "مجتمعاتنا",
         content:
           "نحن نهتم بمجتمعاتنا وبيئتنا، وذلك من خلال رد الجميل للمجتمعات وجعل كوكبنا أكثر استدامة للأجيال القادمة.",
-        logo: "",
       },
     ],
   },

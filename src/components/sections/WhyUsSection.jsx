@@ -44,7 +44,7 @@ const WhyUsSection = () => {
                     transition={{ duration: 0.9, delay: 0.001 }}
                     className="font-semibold text-lg mr-12 text-gray-700 relative"
                 >
-                    {content.title}
+                    {content.title}&nbsp;
                     <span className="absolute bottom-2 w-12 h-[3px] bg-gray-500"></span>
                 </motion.h2>
                 <motion.h3
