@@ -19,7 +19,7 @@ const OurServices = () => {
     const content = ourServicesContent[language];
 
     return (
-        <section className={`py-16 px-6 bg-gray-100 font-english ${language === "ar" ? "font-arabic text-right" : ""}`}>
+        <section className={`py-1 md:py-16 px-6 bg-gray-100 font-english ${language === "ar" ? "font-arabic text-right" : ""}`}>
             <div className="max-w-6xl mx-auto text-center">
                 <motion.h2
                     initial={{ opacity: 0, x: -100 }}
