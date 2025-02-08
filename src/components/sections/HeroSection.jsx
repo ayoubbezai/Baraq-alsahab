@@ -10,15 +10,15 @@ const HeroSection = () => {
     const { language } = useContext(LanguageContext);
 
     return (
-        <>
+        <div className='pt-2 bg-gray-100'>
             <section
-                className={`hero-section overflow-hidden w-full flex justify-center items-start z-0 font-english ${language === "ar" && "font-arabic"} text-white text-center p-6 py-12 relative h-[90vh]`}
+                className={`hero-section mt-12   overflow-hidden w-full flex justify-center items-start z-0 font-english ${language === "ar" && "font-arabic"} text-white text-center p-6 py-12 relative h-[90vh]`}
                 style={{ backgroundImage: `url(${Background})`, backgroundSize: 'cover', backgroundPosition: 'right' }}
             >
                 <div className="sm:w-1/4  md:w-1/2 ">
 
                 </div>
-                <div className=" w-full sm:w-3/4 md:2/3 lg:w-1/2 overflow-hidden  flex flex-col gap-6 justify-start  items-center">
+                <div className=" w-full mt-12 sm:w-3/4 md:2/3 lg:w-1/2 overflow-hidden  flex flex-col gap-6 justify-start  items-center">
                     <motion.img
                         animate={{ x: [-50, 60, -50], opacity: [1, 0.7, 1] }}
                         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
@@ -81,7 +81,7 @@ const HeroSection = () => {
             </div>
 
 
-        </>
+        </div>
     );
 };
 

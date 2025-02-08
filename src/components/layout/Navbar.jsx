@@ -37,7 +37,7 @@ const Navbar = () => {
                 <title>{language === "ar" ? "برق السحاب | الخدمات اللوجستية" : "Bariq Al Sahab | Logistics Services"}</title>
             </Helmet>
 
-            <nav className={`bg-primary text-white p-3 shadow-2xl overflowy-x-hidden ${language === "en" ? "ltr font-english" : "rtl"}`}>
+            <nav className={`bg-primary fixed z-50  w-full text-white p-3 shadow-2xl overflowy-x-hidden ${language === "en" ? "ltr font-english" : "rtl"}`}>
                 <div className={`container mx-auto flex ${language === "ar" ? "flex-row-reverse" : "flex-row"} justify-between items-center`}>
 
                     {/* Logo with Motion */}
