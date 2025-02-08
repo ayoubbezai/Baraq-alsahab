@@ -8,14 +8,10 @@
 @layer base {
   :root {
     --font-sans: "Tajawal", sans-serif;
-
     --primary: 240 100% 20%; /* #0C005B */
     --primary-light: 240 100% 50%; /* #030081 */
-    --primary-foreground: 210 40% 98%;
-
     --secondary: 45 100% 47%; /* #F1B900 */
     --secondary-light: 45 100% 60%; /* #FFD301 */
-    --secondary-foreground: 222.2 47.4% 11.2%;
   }
 }
 
