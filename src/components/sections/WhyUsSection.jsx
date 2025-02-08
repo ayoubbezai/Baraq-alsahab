@@ -47,7 +47,11 @@ const WhyUsSection = () => {
                     {content.title}
                     <span className="absolute bottom-2 w-12 h-[3px] bg-gray-500"></span>
                 </motion.h2>
-                <h3 className="text-4xl font-semibold text-primary mt-2">{content.subtitle}</h3>
+                <motion.h3
+                    whileInView={{ x: 0, opacity: 1 }}
+                    initial={{ x: 100, opacity: 0 }}
+                    transition={{ duration: 0.9, delay: 0.001 }}
+                    className="text-4xl font-semibold text-primary mt-2">{content.subtitle}</motion.h3>
             </div>
 
             <div className="flex flex-wrap justify-center gap-6 mt-12 max-w-6xl mx-auto">
