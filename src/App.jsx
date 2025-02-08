@@ -7,6 +7,7 @@ import Trackshipment from "./pages/Trackshipment";
 import AdminLogin from "./pages/AdminLogin";
 import { LanguageProvider } from './states/LanguageContext';
 import ScrollToTop from './utils/ScrollTop';
+import { AuthProvider } from "./states/AuthContext"
 
 function Layout() {
   const location = useLocation();
@@ -32,9 +33,12 @@ function App() {
   return (
     <Router>
       <LanguageProvider>
-        <Layout />
+        <   AuthProvider>
+          <Layout />
+        </AuthProvider>
       </LanguageProvider>
-    </Router>
+
+    </Router >
   );
 }
 
