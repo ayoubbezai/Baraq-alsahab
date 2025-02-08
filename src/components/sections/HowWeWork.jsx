@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import { LanguageContext } from "../../states/LanguageContext";
-import firstGif from "../../assets/gifs/ezEH57o7p7v42Mi3n6-ezgif.com-video-to-gif-converter.gif";
-import secendGif from "../../assets/gifs/oV27q5Nb9Ips5pOi05-ezgif.com-optimize.gif";
-import thirdGif from "../../assets/gifs/V2ZYF092pBrH503958-ezgif.com-video-to-gif-converter.gif";
+import firstVideo from "../../assets/videos/ezEH57o7p7v42Mi3n6-ezgif.com-video-to-gif-converter (1).mp4";
+import secendVideo from "../../assets/videos/oV27q5Nb9Ips5pOi05-ezgif.com-optimize.mp4";
+import thirdVideo from "../../assets/videos/V2ZYF092pBrH503958-ezgif.com-video-to-gif-converter (1).mp4";
 
 const HowWeWork = () => {
     const { language } = useContext(LanguageContext);
@@ -33,7 +33,7 @@ const HowWeWork = () => {
                 >
                     {language === "ar" ? (
                         <>
-                            .عملية <span className="text-secondary">فعّالة</span> و <span className="text-secondary">آمنة</span>وخالية من المتاعب
+                            .عملية <span className="text-secondary">فعّالة</span> و <span className="text-secondary">آمنة</span> وخالية من المتاعب
                         </>
                     ) : (
                         <>
@@ -43,30 +43,39 @@ const HowWeWork = () => {
                 </motion.h3>
             </div>
 
-            {/* GIFs Section */}
+            {/* Videos Section */}
             <div className="max-w-6xl mx-auto mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-                <motion.img
-                    src={firstGif}
-                    alt="Process Step 1"
-                    className="mx-auto w-72 md:w-2/3"
+                <motion.video
+                    src={firstVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="mx-auto w-72 md:w-2/3 "
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.3 }}
                     viewport={{ once: false, amount: 0.3 }}
                 />
-                <motion.img
-                    src={secendGif}
-                    alt="Process Step 2"
-                    className="mx-auto  w-72 md:w-2/3"
+                <motion.video
+                    src={secendVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="mx-auto w-72 md:w-2/3 "
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.5 }}
                     viewport={{ once: false, amount: 0.3 }}
                 />
-                <motion.img
-                    src={thirdGif}
-                    alt="Process Step 3"
-                    className="mx-auto  w-72 md:w-2/3"
+                <motion.video
+                    src={thirdVideo}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="mx-auto w-72 md:w-2/3 "
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.7 }}
