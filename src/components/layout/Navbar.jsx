@@ -87,7 +87,10 @@ const Navbar = () => {
                         </motion.li>
                         <motion.li variants={navItemVariants} initial="hidden" animate="visible">
                             <Link
-                                to={"/joinUs"}
+                                onClick={() => {
+                                    setIsNavOpen(false);
+                                    window.scrollTo({ top: 4150, behavior: "smooth" });
+                                }}
                                 className="hover:text-secondary-light"
                             >
                                 {language === "ar" ? "انضم إلى أسطولنا" : "Join Our Fleet"}
@@ -192,7 +195,10 @@ const Navbar = () => {
                         </motion.li>
                         <motion.li variants={navItemVariants} initial="hidden" animate="visible">
                             <Link
-                                to={"/joinUs"}
+                                onClick={() => {
+                                    setIsNavOpen(false);
+                                    window.scrollTo({ top: 4150, behavior: "smooth" });
+                                }}
                                 className="hover:text-secondary-light"
                             >
                                 {language === "ar" ? "انضم إلى أسطولنا" : "Join Our Fleet"}
@@ -214,7 +220,8 @@ const Navbar = () => {
                         <motion.li whileHover={{ scale: 1.1 }}>
                             <button onClick={() => {
                                 setIsNavOpen(false);
-                                toggleLanguage(language === "ar" ? "en" : "ar")}} className="flex items-center gap-2 mb-2 text-sm font-medium">
+                                toggleLanguage(language === "ar" ? "en" : "ar")
+                            }} className="flex items-center gap-2 mb-2 text-sm font-medium">
                                 <img src={language === "ar" ? ukFlag : saFlag} alt="Flag" className="w-5 h-3" />
                                 {language === "ar" ? "English" : "عربي"}
                             </button>

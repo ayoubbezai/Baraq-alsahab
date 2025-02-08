@@ -9,7 +9,7 @@ const AboutUsSection = () => {
 
     return (
         <div
-            className={`flex  flex-col md:flex-row bg-gray-100 overflow-hidden  items-center justify-between gap-20 px-6 py-12 md:px-12 lg:px-20 font-english 
+            className={`flex  flex-col md:flex-row bg-gray-100 overflow-hidden  items-center justify-between gap-20 px-6 py-12  md:px-12 lg:px-20 font-english 
       ${language === "ar" ? "font-arabic text-right" : "text-left  md:flex-row-reverse lg:gap-24"}`}
         >
             {/* About Us Image */}
