@@ -13,42 +13,42 @@ import { AuthProvider } from "./states/AuthContext"
 import ProtectedRoute from './utils/ProtectedRoute';
 
 function Layout() {
-  const location = useLocation();
-  const showNavAndFooter = location.pathname === '/' || location.pathname === '/joinUs' || location.pathname === '/shipment';
+    const location = useLocation();
+    const showNavAndFooter = location.pathname === '/' || location.pathname === '/joinUs' || location.pathname === '/shipment' || location.pathname === '/sectors';
 
-  return (
-    <>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/joinUs" element={<JoinOurFleet />} />
-        <Route path="/shipment" element={<Trackshipment />} />
-        <Route path="/admin" element={<AdminLogin />} />
-        <Route path="/sectors" element={<Sectors />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
+    return (
+        <>
+            <ScrollToTop />
+            <Routes>
+                <Route path="/" element={<Landing />} />
+                <Route path="/joinUs" element={<JoinOurFleet />} />
+                <Route path="/shipment" element={<Trackshipment />} />
+                <Route path="/admin" element={<AdminLogin />} />
+                <Route path="/sectors" element={<Sectors />} />
+                <Route path="*" element={<Navigate to="/" replace />} />
 
-        <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<Dashboard />} />
+                <Route element={<ProtectedRoute />}>
+                    <Route path="/dashboard" element={<Dashboard />} />
 
-        </Route>
+                </Route>
 
-      </Routes>
-      {showNavAndFooter && <Footer />}
-    </>
-  );
+            </Routes>
+            {showNavAndFooter && <Footer />}
+        </>
+    );
 }
 
 function App() {
-  return (
-    <Router>
-      <LanguageProvider>
-        <   AuthProvider>
-          <Layout />
-        </AuthProvider>
-      </LanguageProvider>
+    return (
+        <Router>
+            <LanguageProvider>
+                <   AuthProvider>
+                    <Layout />
+                </AuthProvider>
+            </LanguageProvider>
 
-    </Router >
-  );
+        </Router >
+    );
 }
 
 export default App;
