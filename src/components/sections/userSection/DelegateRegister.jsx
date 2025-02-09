@@ -4,7 +4,7 @@ import LogoEn from "../../../assets/logo/big logo english yellow.png";
 import { Button } from '../../ui/button';
 import toast, { Toaster } from "react-hot-toast";
 import { LanguageContext } from "../../../states/LanguageContext";
-import { storeData } from '../../../services/senddata';
+import { storeData } from '../../../services/sendData';
 
 const DelegateRegister = () => {
     const [images, setImages] = useState([]);  // Store image files for upload
