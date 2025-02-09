@@ -190,7 +190,7 @@ const Navbar = () => {
                             <Link
                                 onClick={() => {
                                     setIsNavOpen(false);
-                                    window.scrollTo({ top: 200, behavior: "smooth" });
+                                    window.scrollTo({ top: 3150, behavior: "smooth" });
                                 }}
                                 className="hover:text-secondary-light"
                             >
@@ -201,7 +201,7 @@ const Navbar = () => {
                             <Link
                                 onClick={() => {
                                     setIsNavOpen(false);
-                                    window.scrollTo({ top: 2550, behavior: "smooth" });
+                                    window.scrollTo({ top: 3750, behavior: "smooth" });
                                 }}
                                 className="hover:text-secondary-light"
                             >
