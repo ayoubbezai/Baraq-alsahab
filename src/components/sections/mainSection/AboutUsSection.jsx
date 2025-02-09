@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import aboutUsContent from "../../content/aboutUsContent";
-import { LanguageContext } from "../../states/LanguageContext";
-import AboutUsImage from "../../assets/sections/AboutUs+(1).webp";
+import aboutUsContent from "../../../content/aboutUsContent";
+import { LanguageContext } from "../../../states/LanguageContext";
+import AboutUsImage from "../../../assets/sections/AboutUs+(1).webp";
 import { motion } from "framer-motion";
 
 const AboutUsSection = () => {

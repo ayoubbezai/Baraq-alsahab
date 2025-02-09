@@ -82,20 +82,21 @@ const Navbar = () => {
                                 }}
                                 className="hover:text-secondary-light"
                             >
-                                {language === "ar" ? "خدماتنا" : "Our Services"}
+                                {language === "ar" ? "انضم إلى أسطولنا" : "Join Our Fleet"}
                             </Link>
                         </motion.li>
                         <motion.li variants={navItemVariants} initial="hidden" animate="visible">
                             <Link
                                 onClick={() => {
                                     setIsNavOpen(false);
-                                    window.scrollTo({ top: 4150, behavior: "smooth" });
+                                    window.scrollTo({ top: 2550, behavior: "smooth" });
                                 }}
                                 className="hover:text-secondary-light"
                             >
-                                {language === "ar" ? "انضم إلى أسطولنا" : "Join Our Fleet"}
+                                {language === "ar" ? "خدماتنا" : "Our Services"}
                             </Link>
                         </motion.li>
+
                         <motion.li variants={navItemVariants} initial="hidden" animate="visible">
                             <Link
                                 onClick={() => {
@@ -189,24 +190,25 @@ const Navbar = () => {
                             <Link
                                 onClick={() => {
                                     setIsNavOpen(false);
-                                    window.scrollTo({ top: 2000, behavior: "smooth" });
-                                }}
-                                className="hover:text-secondary-light"
-                            >
-                                {language === "ar" ? "خدماتنا" : "Our Services"}
-                            </Link>
-                        </motion.li>
-                        <motion.li variants={navItemVariants} initial="hidden" animate="visible">
-                            <Link
-                                onClick={() => {
-                                    setIsNavOpen(false);
-                                    window.scrollTo({ top: 4150, behavior: "smooth" });
+                                    window.scrollTo({ top: 200, behavior: "smooth" });
                                 }}
                                 className="hover:text-secondary-light"
                             >
                                 {language === "ar" ? "انضم إلى أسطولنا" : "Join Our Fleet"}
                             </Link>
                         </motion.li>
+                        <motion.li variants={navItemVariants} initial="hidden" animate="visible">
+                            <Link
+                                onClick={() => {
+                                    setIsNavOpen(false);
+                                    window.scrollTo({ top: 2550, behavior: "smooth" });
+                                }}
+                                className="hover:text-secondary-light"
+                            >
+                                {language === "ar" ? "خدماتنا" : "Our Services"}
+                            </Link>
+                        </motion.li>
+
                         <motion.li variants={navItemVariants} initial="hidden" animate="visible">
                             <Link
                                 onClick={() => {

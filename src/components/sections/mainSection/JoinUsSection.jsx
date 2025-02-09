@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import joinUsContent from "../../content/joinUsSection";
-import { LanguageContext } from "../../states/LanguageContext";
-import AboutUsImage from "../../assets/sections/joinUs.webp";
+import joinUsContent from "../../../content/joinUsSection";
+import { LanguageContext } from "../../../states/LanguageContext";
+import AboutUsImage from "../../../assets/sections/joinUs.webp";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 const JoinUsSection = () => {
@@ -9,7 +9,7 @@ const JoinUsSection = () => {
 
     return (
         <div
-            className={`flex  flex-col md:flex-row bg-primary overflow-hidden  items-center justify-between gap-20 px-6 py-12 pb-16 md:px-12 lg:px-20 font-english mt-8 mb-12
+            className={`flex  flex-col md:flex-row bg-primary overflow-hidden  items-center justify-between gap-20 px-6 py-12 pb-16 md:px-12 lg:px-20 font-english 
       ${language === "ar" ? "font-arabic text-right" : "text-left  md:flex-row-reverse lg:gap-24"}`}
         >
             {/* About Us Image */}
@@ -57,10 +57,10 @@ const JoinUsSection = () => {
                     initial={{ x: 50, opacity: 0 }}
                     transition={{ duration: 0.9, delay: 0.001 }}>
 
-                <Link
-                    
-                    to={"/joinUs"}
-                    className="bg-secondary cursor-pointer text-white text-sm font-medium px-4 py-2  transition-all duration-300 hover:bg-opacity-90 shadow-md inline-block w-32 text-center self-center rounded-md mt-2">{joinUsContent[language].buttonText}</Link>
+                    <Link
+
+                        to={"/joinUs"}
+                        className="bg-secondary cursor-pointer text-white text-sm font-medium px-4 py-2  transition-all duration-300 hover:bg-opacity-90 shadow-md inline-block w-32 text-center self-center rounded-md mt-2">{joinUsContent[language].buttonText}</Link>
                 </motion.div>
             </div>
         </div>

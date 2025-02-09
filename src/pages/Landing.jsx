@@ -1,13 +1,13 @@
 
 import React from 'react'
 import Navbar from '../components/layout/Navbar';
-import Hero from "../components/sections/HeroSection"
-import AboutUsSection from "../components/sections/AboutUsSection"
-import WhyUsSection from "../components/sections/WhyUsSection"
-import OurServices from "../components/sections/OurServices"
-import SectorsSection from "../components/sections/SectorsSection"
-import HowWeWork from "../components/sections/HowWeWork"
-import JoinUsSection from "../components/sections/JoinUsSection"
+import Hero from "../components/sections/mainSection/HeroSection"
+import AboutUsSection from "../components/sections/mainSection/AboutUsSection"
+import WhyUsSection from "../components/sections/mainSection/WhyUsSection"
+import OurServices from "../components/sections/mainSection/OurServices"
+import SectorsSection from "../components/sections/mainSection/SectorsSection"
+import HowWeWork from "../components/sections/mainSection/HowWeWork"
+import JoinUsSection from "../components/sections/mainSection/JoinUsSection"
 const Landing = () => {
   return (
     <>
@@ -15,10 +15,10 @@ const Landing = () => {
       <Hero />
       <AboutUsSection />
       <WhyUsSection />
+      <JoinUsSection />
       <OurServices />
       <SectorsSection />
       <HowWeWork />
-      <JoinUsSection />
     </>
   )
 }

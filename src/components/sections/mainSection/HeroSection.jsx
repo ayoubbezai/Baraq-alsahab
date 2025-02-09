@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { LanguageContext } from '../../states/LanguageContext';
-import heroContent from '../../content/heroContent';
-import Background from '../../assets/background/hero-section-main.webp';
-import Logo from '../../assets/logo/white logo.webp';
-import BackgroundPhone from '../../assets/background/hero2.webp';
-import { Button } from '../ui/button';
+import { LanguageContext } from '../../../states/LanguageContext';
+import heroContent from '../../../content/heroContent';
+import Background from '../../../assets/background/hero-section-main.webp';
+import Logo from '../../../assets/logo/white logo.webp';
+import BackgroundPhone from '../../../assets/background/hero2.webp';
+import { Button } from '../../ui/button';
 import { motion } from "framer-motion";
 
 const HeroSection = () => {

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { LanguageContext } from "../../states/LanguageContext";
-import ourServicesContent from "../../content/ourServices";
+import { LanguageContext } from "../../../states/LanguageContext";
+import ourServicesContent from "../../../content/ourServices";
 import { motion } from "framer-motion";
 import { Truck, ShoppingCart, Package } from "lucide-react";
 
@@ -19,7 +19,7 @@ const OurServices = () => {
     const content = ourServicesContent[language];
 
     return (
-        <section className={`py-8   px-6 md:pb-28 bg-gray-100 font-english ${language === "ar" ? "font-arabic text-right" : ""}`}>
+        <section className={`py-8   px-6 md:pb-28 md:pt-20 bg-gray-100 font-english ${language === "ar" ? "font-arabic text-right" : ""}`}>
             <div className="max-w-6xl mx-auto text-center">
                 <motion.h2
                     initial={{ opacity: 0, x: -100 }}

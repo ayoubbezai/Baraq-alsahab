@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { LanguageContext } from "../../states/LanguageContext";
-import sectorsContent from "../../content/sectorsContent";
+import { LanguageContext } from "../../../states/LanguageContext";
+import sectorsContent from "../../../content/sectorsContent";
 import { motion } from "framer-motion";
 import { Building, ShoppingBag, Store, Globe } from "lucide-react";
 

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
-import { LanguageContext } from "../../states/LanguageContext";
+import { LanguageContext } from "../../../states/LanguageContext";
 import Marquee from "react-fast-marquee";
 
 const companyLogos = [

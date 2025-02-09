@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { motion } from "framer-motion";
-import { LanguageContext } from "../../states/LanguageContext";
-import firstVideo from "../../assets/videos/ezEH57o7p7v42Mi3n6-ezgif.com-video-to-gif-converter (1).mp4";
-import secendVideo from "../../assets/videos/oV27q5Nb9Ips5pOi05-ezgif.com-optimize.mp4";
-import thirdVideo from "../../assets/videos/V2ZYF092pBrH503958-ezgif.com-video-to-gif-converter (1).mp4";
+import { LanguageContext } from "../../../states/LanguageContext";
+import firstVideo from "../../../assets/videos/ezEH57o7p7v42Mi3n6-ezgif.com-video-to-gif-converter (1).mp4";
+import secendVideo from "../../../assets/videos/oV27q5Nb9Ips5pOi05-ezgif.com-optimize.mp4";
+import thirdVideo from "../../../assets/videos/V2ZYF092pBrH503958-ezgif.com-video-to-gif-converter (1).mp4";
 
 const HowWeWork = () => {
     const { language } = useContext(LanguageContext);

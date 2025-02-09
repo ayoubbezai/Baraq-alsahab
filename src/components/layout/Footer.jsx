@@ -4,7 +4,9 @@ import { LanguageContext } from "../../states/LanguageContext";
 import arabicLogo from "../../assets/logo/logo arabic yellow.svg";
 import englishLogo from "../../assets/logo/logo english yellow.svg";
 import { motion } from "framer-motion";
-
+import { socialMediaLink, contactInfo } from "../../content/footerContent";
+import clientRights from "../../assets/pdfs/حقوق العملاء.pdf"
+import privacy from "../../assets/pdfs/سياسة الخصوصية.pdf"
 const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -55,14 +57,14 @@ const Footer = () => {
                     >
                         <div className={`flex flex-col gap-3 ${language === "ar" && "items-end  text-right"}  `}>
                             <img src={language === "ar" ? arabicLogo : englishLogo} alt="logo" className='w-40 h-20' />
-                            <p className={`flex ${language === "ar" && "flex-row-reverse"} items-center gap-2 text-gray-300`}>
-                                <FaEnvelope className="text-gray-300" /> email@example.com
+                            <p className={`flex  items-center gap-2  text-gray-300`}>
+                                <FaEnvelope className="text-gray-300" /> {contactInfo.email}
                             </p>
                             <p className={`flex ${language === "ar" && "flex-row-reverse"}items-center gap-2 text-gray-300`}>
-                                <FaPhoneAlt className="text-gray-300" /> +123 456 7890
+                                <FaPhoneAlt className="text-gray-300" /> {contactInfo.phoneNumber}
                             </p>
                             <p className={`flex  ${language === "ar" && "flex-row-reverse"} items-center gap-2 text-gray-300`}>
-                                <FaMapMarkerAlt className="text-gray-300" /> 123 Street, City, Country
+                                <FaMapMarkerAlt className="text-gray-300" /> {language === "ar" ? contactInfo.address.ar : contactInfo.address.en}
                             </p>
                         </div>
                     </motion.div>
@@ -85,13 +87,13 @@ const Footer = () => {
                                 </a>
                             </li>
                             <li>
-                                <a href="/careers" className="text-gray-300 hover:text-gray-100">
-                                    {language === "ar" ? "الوظائف" : "Careers"}
+                                <a href={clientRights} className="text-gray-300 hover:text-gray-100" download>
+                                    {language === "ar" ? "حقوق العملاء" : "Customer Rights"}
                                 </a>
                             </li>
                             <li>
-                                <a href="/blog" className="text-gray-300 hover:text-gray-100">
-                                    {language === "ar" ? "المدونة" : "Blog"}
+                                <a href={privacy} className="text-gray-300 hover:text-gray-100" download>
+                                    {language === "ar" ? "سياسة الخصوصية" : "privacy policy"}
                                 </a>
                             </li>
                         </ul>
@@ -110,7 +112,7 @@ const Footer = () => {
                         </h3>
                         <div className="flex space-x-4">
                             {[
-                                { icon: <FaFacebookF />, link: "https://facebook.com" },
+                                { icon: <FaFacebookF />, link: socialMediaLink.Facebook },
                                 { icon: <FaTwitter />, link: "https://twitter.com" },
                                 { icon: <FaInstagram />, link: "https://instagram.com" },
                                 { icon: <FaLinkedin />, link: "https://linkedin.com" }
