@@ -67,7 +67,7 @@ const SectorsSection = () => {
                         {/* Register Now Button */}
                         <div className="mt-auto">
                             <Link
-                                to="/register"
+                                to="/sectors"
                                 className="bg-secondary text-white text-sm font-medium px-4 py-2 rounded-none transition-all duration-300 hover:bg-opacity-90 shadow-md inline-block w-full"
                             >
                                 {language === "ar" ? "سجل الآن" : "Register Now"}

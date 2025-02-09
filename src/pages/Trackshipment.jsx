@@ -1,5 +1,5 @@
 import React from 'react'
-import Hero from "../components/sections/mainSection/HeroSection"
+import Hero from "../components/sections/shipmentSection/ThirdHero"
 import JoinUsNavbar from "../components/layout/JoinUsNavbar"
 import Shipment from "../components/sections/shipmentSection/shipment"
 
