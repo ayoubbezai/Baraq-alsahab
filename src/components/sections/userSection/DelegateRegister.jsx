@@ -99,10 +99,10 @@ const DelegateRegister = () => {
     return (
         <div className={`flex justify-center items-center min-h-screen bg-gray-100 py-20 ${language === "ar" ? "font-arabic text-right" : "font-english text-left"}`}>
             <Toaster />
-            <div className={`bg-primary shadow-lg rounded-2xl p-6 w-full max-w-4xl flex  ${language === "en" && "flex-row-reverse"}`}>
+            <div className={`bg-primary shadow-lg rounded-2xl p-6 w-full mx-2 md:mx-0 max-w-4xl flex flex-col md:flex-row  ${language === "en" && "md:flex-row-reverse"}`}>
                 {/* Left Section */}
-                <div className='flex flex-col justify-start mt-8 items-center w-1/2 bg-primary rounded-l-lg p-6'>
-                    <img src={language === "ar" ? LogoAr : LogoEn} alt="Logo" className='w-72 h-60' />
+                <div className='flex flex-col justify-start mt-3 md:mt-8 items-center w-full md:w-1/2 bg-primary rounded-l-lg md:p-6'>
+                    <img src={language === "ar" ? LogoAr : LogoEn} alt="Logo" className='w-42 h-32 md:w-72 md:h-60' />
                     {/* Uploaded Images */}
                     <div className='mt-8 flex flex-wrap gap-4 justify-center w-full '>
                         {images.map((image, index) => (
@@ -120,7 +120,7 @@ const DelegateRegister = () => {
                 </div>
 
                 {/* Right Section (Form) */}
-                <form onSubmit={handleSubmit} className='w-1/2 p-6'>
+                <form onSubmit={handleSubmit} className='w-full md:w-1/2 p-6'>
                     <h2 className='text-xl font-semibold mb-4 text-white'>{language === "ar" ? "تسجيل المندوب" : "Delegate Registration"}</h2>
                     <div className='space-y-3'>
                         <input type="text" name="firstName" placeholder={language === "ar" ? "الاسم الأول" : "First Name"} className={`w-full p-2 border rounded bg-transparent text-white placeholder-gray-300 ${language === "ar" && "text-right"}`} required />
