@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { LanguageContext } from '../../../states/LanguageContext';
 import heroContent from '../../../content/secendHeroContent';
 import Background from "../../../assets/background/hero3.webp";
