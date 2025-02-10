@@ -44,3 +44,10 @@ export const getOneUserData = async (id, collectionName) => {
     throw new Error("Failed to get data"); // Optional error handling
   }
 };
+
+
+export const getColSize= async(collectionName)=>{
+  const collectionRef = collection(db,collectionName)
+  const snapshot = await getDocs(collectionRef)
+  return snapshot.size
+}

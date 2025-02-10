@@ -12,6 +12,9 @@ import ScrollToTop from './utils/ScrollTop';
 import { AuthProvider } from "./states/AuthContext"
 import ProtectedRoute from './utils/ProtectedRoute';
 import Delegate from "./pages/DelegateDetails"
+import DelegateArchive from "./pages/DelegateArchive"
+import Companies from './pages/Companies';
+import CompaniesArchive from './pages/CompaniesArchive';
 
 function Layout() {
     const location = useLocation();
@@ -30,6 +33,9 @@ function Layout() {
                 <Route element={<ProtectedRoute />}>
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/delegate/:id" element={<Delegate />} />
+                    <Route path="/delegates-archive" element={<DelegateArchive />} />
+                    <Route path="/companies-dashboard" element={<Companies />} />
+                    <Route path="/companies-archive" element={<CompaniesArchive />} />
 
                 </Route>
 

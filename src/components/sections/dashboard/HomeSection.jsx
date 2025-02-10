@@ -18,7 +18,7 @@ const HomeSection = () => {
     return (
         <div className='flex flex-col  items-center justify-center p-6'>
             <h1 className='text-4xl font-bold text-center mb-4 text-primary'>Welcome to <span className='text-secondary'>Barq Al Sahab</span></h1>
-            <h2 className='text-xl font-semibold text-center mb-6 text-primary'>Here are the latest applicants</h2>
+            <h2 className='text-xl font-semibold text-center mb-6 text-primary'>Here are the latest Delegates applicants </h2>
             <div className='w-full mx-auto flex justify-center items-center'>
                 <Table>
                     <TableHeader>
