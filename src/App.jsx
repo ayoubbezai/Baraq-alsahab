@@ -15,6 +15,7 @@ import Delegate from "./pages/DelegateDetails"
 import DelegateArchive from "./pages/DelegateArchive"
 import Companies from './pages/Companies';
 import CompaniesArchive from './pages/CompaniesArchive';
+import CompanyDetails from './pages/CompanyDetails';
 
 function Layout() {
     const location = useLocation();
@@ -36,6 +37,8 @@ function Layout() {
                     <Route path="/delegates-archive" element={<DelegateArchive />} />
                     <Route path="/companies-dashboard" element={<Companies />} />
                     <Route path="/companies-archive" element={<CompaniesArchive />} />
+                    <Route path="/company/:id" element={<CompanyDetails />} />
+
 
                 </Route>
 
