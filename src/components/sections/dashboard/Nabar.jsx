@@ -52,16 +52,16 @@ const Navbar = ({ hover }) => {
     const totalNotifications = useMemo(() => colSizeDelegates + colSizeCompanies, [colSizeDelegates, colSizeCompanies]);
 
     return (
-        <div className='flex flex-col md:flex-col items-center px-4 md:px-0 md:justify-start bg-primary md:min-h-screen p-2 md:p-6 md:w-52 w-full shadow-lg'>
+        <div className='flex flex-col lg:flex-col items-center px-4 md:px-0 lg:justify-start bg-primary lg:min-h-screen p-2 lg:p-6  lg:w-52 w-full shadow-lg'>
             {/* Logo */}
-            <div className='md:mb-8 flex justify-between items-center w-full '>
-                <img src={Logo} alt="Logo" className='hidden md:flex w-28 h-30 md:ml-8 ' />
-                <img src={LogoPhone} alt="Logo" className='w-24 h-16 md:hidden' />
-                <img src={MenuIcon} alt="Menu Icon" className="h-8 w-8 md:hidden cursor-pointer" onClick={() => setIsOpen(!isOpen)} />
+            <div className='lg:mb-8 flex justify-between  items-center w-full '>
+                <img src={Logo} alt="Logo" className='hidden lg:flex w-28 h-30 lg:ml-4 ' />
+                <img src={LogoPhone} alt="Logo" className='w-24 h-16 lg:hidden' />
+                <img src={MenuIcon} alt="Menu Icon" className="h-8 w-8 lg:hidden cursor-pointer" onClick={() => setIsOpen(!isOpen)} />
             </div>
 
             {/* Notification Bell */}
-            <div className="relative hidden md:block mb-6">
+            <div className="relative hidden lg:block mb-6">
                 <Bell className="text-white w-5 h-5" />
                 {!loading && totalNotifications > 0 && (
                     <span className="absolute -top-1 -right-2 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
@@ -71,7 +71,7 @@ const Navbar = ({ hover }) => {
             </div>
 
             {/* Navigation Links */}
-            <nav className={`flex flex-col gap-3 w-full ${isOpen ? 'block' : 'hidden'} md:flex`}>
+            <nav className={`flex flex-col gap-2 text-sm w-full ${isOpen ? 'block' : 'hidden'} lg:flex`}>
 
                 <NavItem to="/dashboard" icon={Briefcase} label="Delegates" number={colSizeDelegates} hover={hover} />
                 <NavItem to="/delegates-archive" icon={Archive} label="Delegates Archive" hover={hover} />
@@ -90,11 +90,11 @@ const Navbar = ({ hover }) => {
 
 const NavItem = ({ to, icon: Icon, label, number, hover }) => {
     return (
-        <Link to={to} className={`flex relative items-center gap-4 text-secondary px-4 py-3 mx-2 text-[14px] font-semibold rounded-lg transition-all duration-300 hover:bg-secondary hover:text-white ${hover !== number && "text-white"}`}>
-            <Icon className="w-5 h-5 " />
+        <Link to={to} className={`flex relative items-center gap-4 text-secondary px-8 py-3 mx-1  text-[14px] font-semibold rounded-lg transition-all duration-300 hover:bg-secondary hover:text-white ${hover !== number && "text-white"}`}>
+            <Icon className="w-5 h-5 absolute left-1" />
             {label}
             {number > 0 && (
-                <span className="ml-auto absolute right-3 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
+                <span className="ml-auto absolute right-1 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">
                     {number}
                 </span>
             )}

@@ -58,43 +58,47 @@ const Delegate = () => {
     return (
         <div className="flex justify-center items-center min-h-screen bg-gray-100 p-4">
             <Toaster />
-            <div className="bg-primary shadow-lg rounded-2xl p-6 max-w-lg w-full">
+            <div className="bg-primary shadow-lg flex flex-row-reverse gap-12 justify-between rounded-2xl p-6 max-w-3xl w-full">
                 {userData ? (
                     <>
-                        <h2 className="text-3xl font-bold text-center text-secondary mb-4">
-                            {userData.firstName} {userData.lastName}
-                        </h2>
-                        <p className="text-gray-100 mb-2"><strong>Email:</strong> {userData.email}</p>
-                        <p className="text-gray-100 mb-2"><strong>Phone:</strong> {userData.phone}</p>
-                        <p className="text-gray-100 mb-2"><strong>Address:</strong> {userData.address}</p>
-                        <p className="text-gray-100 mb-2"><strong>Submitted:</strong> {userData.submissionTime}</p>
-                        <p className={`text-base font-semibold mb-2 ${getStatusColor(userData.status)}`}>
-                            Status:  <span className="text-[17px]">{userData.status || "Pending"}</span>
-                        </p>
+                        <div className="w-1/2">
+                            <h2 className="text-3xl font-bold text-center text-secondary mb-4">
+                                {userData.firstName} {userData.lastName}
+                            </h2>
+                            <p className="text-gray-100 mb-2"><strong>Email:</strong> {userData.email}</p>
+                            <p className="text-gray-100 mb-2"><strong>Phone:</strong> {userData.phone}</p>
+                            <p className="text-gray-100 mb-2"><strong>Address:</strong> {userData.address}</p>
+                            <p className="text-gray-100 mb-2"><strong>Submitted:</strong> {userData.submissionTime}</p>
+                            <p className={`text-base font-semibold mb-2 ${getStatusColor(userData.status)}`}>
+                                Status:  <span className="text-[15px]">{userData.status || "Pending"}</span>
+                            </p>
+                        </div>
 
-                        {userData.images && userData.images.length > 0 && (
-                            <Carousel showThumbs={false} className="rounded-lg overflow-hidden w-full">
-                                {userData.images.map((img, index) => (
-                                    <div key={index}>
-                                        <img src={img} alt={`User Image ${index + 1} `} className="rounded-lg " />
-                                    </div>
-                                ))}
-                            </Carousel>
-                        )}
+                        <div className="w-1/2">
+                            {userData.images && userData.images.length > 0 && (
+                                <Carousel showThumbs={false} className="rounded-lg overflow-hidden w-full">
+                                    {userData.images.map((img, index) => (
+                                        <div key={index}>
+                                            <img src={img} alt={`User Image ${index + 1} `} className="rounded-lg " />
+                                        </div>
+                                    ))}
+                                </Carousel>
+                            )}
 
-                        <div className="flex justify-between mt-6">
-                            <button
-                                onClick={() => handleAction("Approved")}
-                                className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
-                            >
-                                Approve
-                            </button>
-                            <button
-                                onClick={() => handleAction("Rejected")}
-                                className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                            >
-                                Reject
-                            </button>
+                            <div className="flex justify-between mt-6">
+                                <button
+                                    onClick={() => handleAction("Approved")}
+                                    className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                                >
+                                    Approve
+                                </button>
+                                <button
+                                    onClick={() => handleAction("Rejected")}
+                                    className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                                >
+                                    Reject
+                                </button>
+                            </div>
                         </div>
                     </>
                 ) : (

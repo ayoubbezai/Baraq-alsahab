@@ -1,11 +1,11 @@
 import React from 'react';
 
 export const Table = ({ children }) => (
-    <table className="w-full border-collapse border text-center border-gray-200">{children}</table>
+    <table className="w-full border-collapse border  text-center border-gray-200 min-w-max   ">{children}</table>
 );
 
 export const TableHeader = ({ children }) => (
-    <thead className="bg-gray-100 text-center">{children}</thead>
+    <thead className="bg-gray-100 text-center ">{children}</thead>
 );
 
 export const TableRow = ({ children }) => (
@@ -13,11 +13,11 @@ export const TableRow = ({ children }) => (
 );
 
 export const TableHead = ({ children }) => (
-    <th className="px-4 py-2 text-left font-semibold">{children}</th>
+    <th className="px-4 py-2 text-left font-semibold  ">{children}</th>
 );
 
 export const TableBody = ({ children }) => (
-    <tbody>{children}</tbody>
+    <tbody >{children}</tbody>
 );
 
 export const TableCell = ({ children }) => (

@@ -16,11 +16,11 @@ const HomeSection = () => {
     }, []);
 
     return (
-        <div className='flex flex-col  items-center justify-center p-6'>
+        <div className='flex flex-col  items-center justify-center px-2 py-3 md:p-6 '>
             <h1 className='text-4xl font-bold text-center mb-4 text-primary'>Welcome to <span className='text-secondary'>Barq Al Sahab</span></h1>
             <h2 className='text-xl font-semibold text-center mb-6 text-primary'>Here are the latest Delegates applicants </h2>
-            <div className='w-full mx-auto flex justify-center items-center'>
-                <Table>
+            <div className=' flex mx-auto w-full items-start justify-start  overflow-auto'>
+                <table className='w-full overflow-auto  '>
                     <TableHeader>
                         <TableRow>
                             <TableHead >Name</TableHead>
@@ -40,13 +40,13 @@ const HomeSection = () => {
                                 <TableCell>{item.phone}</TableCell>
                                 <TableCell>{item.address}</TableCell>
                                 <TableCell>{item.submissionTime}</TableCell>
-                                <TableCell><Button className='text-white font-semibold'><Link 
+                                <TableCell><Button className='text-white font-semibold w-32'><Link
                                     to={`/delegate/${item.id}`}
-                                className=''>click to see more</Link></Button></TableCell>
+                                    className=''>click to see more</Link></Button></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
-                </Table>
+                </table>
             </div>
         </div>
     );
