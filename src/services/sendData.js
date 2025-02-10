@@ -1,4 +1,4 @@
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc  } from "firebase/firestore";
 import { db } from "../config/firebase-config"; // Assuming db is already configured
 
 export const storeData = async (data, collectionName) => {

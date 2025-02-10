@@ -11,6 +11,7 @@ import { LanguageProvider } from './states/LanguageContext';
 import ScrollToTop from './utils/ScrollTop';
 import { AuthProvider } from "./states/AuthContext"
 import ProtectedRoute from './utils/ProtectedRoute';
+import Delegate from "./pages/DelegateDetails"
 
 function Layout() {
     const location = useLocation();
@@ -26,9 +27,9 @@ function Layout() {
                 <Route path="/admin" element={<AdminLogin />} />
                 <Route path="/sectors" element={<Sectors />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
-
                 <Route element={<ProtectedRoute />}>
                     <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/delegate/:id" element={<Delegate />} />
 
                 </Route>
 
