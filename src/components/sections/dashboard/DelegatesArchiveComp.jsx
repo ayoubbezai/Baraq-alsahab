@@ -143,7 +143,7 @@ const DelegatesArchiveComp = () => {
                                         <TableCell>{delegation.submissionTime}</TableCell>
                                         <TableCell>
                                             <Button className='text-white font-semibold text-xs w-28 h-18'>
-                                                <Link to={`/delegate/${delegation.id}`}>View Details</Link>
+                                                <Link to={`/delegates-archive/${delegation.id}`}>View Details</Link>
                                             </Button>
                                         </TableCell>
                                     </TableRow>

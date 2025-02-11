@@ -159,7 +159,7 @@ const CompaniesArchiveComp = () => {
                   <TableCell>{company.submissionTime}</TableCell>
                   <TableCell>
                     <Button className='text-white font-semibold text-xs w-28 h-18'>
-                      <Link to={`/company/${company.id}`}>View Details</Link>
+                      <Link to={`/companies-archive/${company.id}`}>View Details</Link>
                     </Button>
                   </TableCell>
                 </TableRow>
