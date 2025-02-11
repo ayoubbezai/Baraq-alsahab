@@ -81,6 +81,7 @@ const Navbar = ({ hover }) => {
             <nav className={`flex flex-col gap-2 text-sm w-full ${isOpen ? 'block' : 'hidden'} lg:flex`}>
 
                 <NavItem to="/dashboard" icon={Briefcase} label="Delegates" number={colSizeDelegates} hover={hover} hoverNumber={1} />
+                <NavItem to="/dashboard" icon={Briefcase} label="Delegates" number={colSizeDelegates} hover={hover} hoverNumber={2} />
                 <NavItem to="/companies-dashboard" icon={Briefcase} label="Companies" number={colSizeCompanies} hover={hover} hoverNumber={3} />
                 <NavItem to="/delegates-archive" icon={Archive} label="Delegates Archive" hover={hover} hoverNumber={2} />
                 <NavItem to="/companies-archive" icon={Archive} label="Companies Archive" hover={hover} hoverNumber={4} />

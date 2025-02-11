@@ -105,7 +105,14 @@ const DelegatesArchiveComp = () => {
             </div>
             {loading ? (
                 <p>Loading...</p>
+            ) : filteredData.length === 0 ? (
+                <div className='text-lg font-semibold text-gray-600 text-center'>
+                    {filter === "All" && <p>There is no archived delegation application for now.</p>}
+                    {filter === "Approved" && <p>There are no approved delegation applications.</p>}
+                    {filter === "Rejected" && <p>There are no rejected delegation applications.</p>}
+                </div>
             ) : (
+                        <>
                 <div className='flex mx-auto w-full items-start justify-start max-h-96 text-[15px] overflow-auto'>
                     <table className='w-full overflow-auto'>
                         <TableHeader>
@@ -145,11 +152,14 @@ const DelegatesArchiveComp = () => {
                         </TableBody>
                     </table>
                 </div>
-            )}
             <div className="mt-4 flex justify-between w-full max-w-lg">
                 <Button className="text-white font-semibold bg-primary text-xs w-28 disabled:opacity-50" onClick={handleGetPreviousPage} disabled={!firstDoc}>Previous Page</Button>
                 <Button className="text-white font-semibold text-xs w-28 disabled:opacity-50" onClick={handleGetNextPage} disabled={!lastDoc}>Next Page</Button>
             </div>
+            </>
+            )}
+
+
         </div>
     );
 };

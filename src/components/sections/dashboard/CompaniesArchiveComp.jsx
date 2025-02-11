@@ -115,7 +115,14 @@ const CompaniesArchiveComp = () => {
 
       {loading ? (
         <p>Loading...</p>
+      ) : filteredData.length === 0 ? (
+        <div className='text-lg font-semibold text-gray-600 text-center'>
+            {filter === "All" && <p> There is no archived Company Submissions for now.</p>}
+            {filter === "Approved" && <p> There are no approved Company Submissions.</p>}
+            {filter === "Rejected" && <p> There are no rejected Company Submissions.</p>}
+        </div>
       ) : (
+        <>
           <div className='flex mx-auto w-full items-start justify-start max-h-96  text-[15px] overflow-auto'>
           <table className='w-full overflow-auto'>
             <TableHeader>
@@ -161,7 +168,6 @@ const CompaniesArchiveComp = () => {
             </TableBody>
           </table>
         </div>
-      )}
 
       {/* Pagination Buttons */}
       <div className="mt-4 flex justify-between w-full max-w-lg">
@@ -180,6 +186,8 @@ const CompaniesArchiveComp = () => {
           Next Page
         </Button>
       </div>
+        </>
+      )}
     </div>
   );
 };
