@@ -44,7 +44,7 @@ const FourthHero = () => {
                             whileInView={{ x: 0, opacity: 1 }}
                             initial={{ x: -150, opacity: 0 }}
                             transition={{ duration: 0.9 }}
-                            className='text-3xl  xl:mt-4  font-semibold text-secondary leading-relaxed w-[90%] mx-auto'
+                            className='text-2xl md:text-3xl xl:mt-4  font-semibold text-secondary leading-relaxed w-[90%] mx-auto'
                         >
                             {heroContent[language].subtitle}
                         </motion.h2>
