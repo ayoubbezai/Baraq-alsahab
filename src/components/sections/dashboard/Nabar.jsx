@@ -5,8 +5,12 @@ import LogoPhone from "../../../assets/logo/logo english yellow.svg";
 import { Archive, Briefcase, Bell, Loader } from 'lucide-react';
 import { getColSize } from '../../../services/getData';
 import MenuIcon from "../../../assets/icons/burger-menu-svgrepo-com (3).svg";
+import { useAuth } from '../../../states/AuthContext';
+import { Button } from '../../ui/button';
 
 const Navbar = ({ hover }) => {
+    const { logout } = useAuth();
+
     const [colSizeDelegates, setColSizeDelegates] = useState(0);
     const [colSizeCompanies, setColSizeCompanies] = useState(0);
     const [loading, setLoading] = useState(true);
@@ -52,7 +56,7 @@ const Navbar = ({ hover }) => {
     const totalNotifications = useMemo(() => colSizeDelegates + colSizeCompanies, [colSizeDelegates, colSizeCompanies]);
 
     return (
-        <div className='flex flex-col lg:flex-col items-center px-4 md:px-0 font-english lg:justify-start bg-primary lg:min-h-screen p-2 lg:p-6  lg:w-52 w-full shadow-lg'>
+        <div className='flex flex-col lg:flex-col items-center px-4 md:px-0 font-english lg:justify- bg-primary lg:min-h-screen p-2 lg:p-6  lg:w-52 w-full shadow-lg'>
             {/* Logo */}
             <div className='lg:mb-8 flex justify-between  items-center w-full '>
                 <img src={Logo} alt="Logo" className='hidden lg:flex w-28 h-30 lg:ml-4 ' />
@@ -81,9 +85,16 @@ const Navbar = ({ hover }) => {
                 <NavItem to="/delegates-archive" icon={Archive} label="Delegates Archive" hover={hover} hoverNumber={2} />
                 <NavItem to="/companies-archive" icon={Archive} label="Companies Archive" hover={hover} hoverNumber={4} />
 
-            </nav>
+                <div className='my-2 self-center flex lg:hidden'>
 
-            {/* Show message if no elements exist */}
+                    <Button onClick={logout}>Logout</Button>
+                </div>
+
+            </nav>
+            <div className='mt-12 hidden lg:flex'>
+
+                <Button onClick={logout}>Logout</Button>
+            </div>
 
         </div>
     );

@@ -13,11 +13,11 @@ const LoginForm = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   if (currentUser) {
-  //     navigate("/dashboard");
-  //   }
-  // }, [currentUser, navigate]);
+  useEffect(() => {
+    if (currentUser) {
+      navigate("/dashboard");
+    }
+  }, [currentUser, navigate]);
 
   async function handleSubmit(e) {
     e.preventDefault();
