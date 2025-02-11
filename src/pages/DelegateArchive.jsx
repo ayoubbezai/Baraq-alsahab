@@ -5,7 +5,7 @@ import DelegatesArchiveComp from '../components/sections/dashboard/DelegatesArch
 const DelegateArchive = () => {
   return (
     <div className='flex flex-col lg:flex-row '>
-      <Navbar hover={2} />
+      <Navbar hover={4} />
       <div className='w-full mx-auto h-screen overflow-y-auto bg-gray-100'>
 
         <DelegatesArchiveComp />

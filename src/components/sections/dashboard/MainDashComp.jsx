@@ -35,16 +35,16 @@ const Card = ({ title, value, backgroundColor, textColor }) => {
 
     return (
         <motion.div
-            className={`p-6 rounded-2xl shadow-lg ${backgroundColor} ${textColor} text-center w-72 relative`}
+            className={`px-4 py-2 rounded-3xl shadow-lg  ${backgroundColor} ${textColor} text-center w-60 relative`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <h3 className="text-xl font-semibold">{title}</h3>
-            <p className="text-3xl font-bold mt-2">{animatedValue}</p>
-          
+            <h3 className="text-lg font-semibold">{title}</h3>
+            <p className="text-2xl font-bold mt-2">{animatedValue}</p>
+
         </motion.div>
     );
 };
@@ -74,11 +74,11 @@ const MainDashComp = () => {
             </h1>
             <h2 className='text-2xl font-medium text-gray-700 mb-4'>Dashboard Overview</h2>
             <div className='mb-6 p-4 bg-purple-600 text-white rounded-lg shadow-lg text-center'>
-                <h3 className='text-xl font-semibold'>Total New Applications</h3>
-                <p className='text-3xl font-bold'>{useCountUp(totalNewApplications)}</p>
+                <h3 className='text-lg font-semibold'>Total New Applications</h3>
+                <p className='text-2xl font-bold'>{useCountUp(totalNewApplications)}</p>
             </div>
             <motion.div
-                className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-4'
+                className='grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6 mt-4'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}

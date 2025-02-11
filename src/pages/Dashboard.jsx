@@ -4,7 +4,7 @@ import HomeSection from "../components/sections/dashboard/HomeSection"
 const Dashboard = () => {
     return (
         <div className='flex flex-col lg:flex-row '>
-            <Navbar hover={1} />
+            <Navbar hover={2} />
             <div className='w-full mx-auto overflow-y-auto bg-gray-100'>
 
                 <HomeSection />

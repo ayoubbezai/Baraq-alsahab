@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import Logo from "../../../assets/logo/big logo english yellow.png";
 import LogoPhone from "../../../assets/logo/logo english yellow.svg";
-import { Archive, Briefcase, Bell, Loader } from 'lucide-react';
+import { Archive, Briefcase, Bell, LayoutDashboardIcon } from 'lucide-react';
 import { getColSize } from '../../../services/getData';
 import MenuIcon from "../../../assets/icons/burger-menu-svgrepo-com (3).svg";
 import { useAuth } from '../../../states/AuthContext';
@@ -65,7 +65,7 @@ const Navbar = ({ hover }) => {
             </div>
 
             {/* Notification Bell */}
-            <div className="relative hidden  lg:flex flex-col items-center mb-6">
+            <div className="relative hidden  lg:flex flex-col items-center mb-4">
                 <Bell className="text-white w-5 h-5" />
                 {!loading && totalNotifications > 0 && (
                     <span className="absolute   -top-1 -right-2 bg-red-600 text-white text-[9.5px]  font-bold w-4 h-4 flex items-center justify-center rounded-full">
@@ -78,13 +78,13 @@ const Navbar = ({ hover }) => {
             </div>
 
             {/* Navigation Links */}
-            <nav className={`flex flex-col gap-2 text-sm w-full ${isOpen ? 'block' : 'hidden'} lg:flex`}>
+            <nav className={`flex flex-col gap-1 text-sm w-full ${isOpen ? 'block' : 'hidden'} lg:flex`}>
 
-                <NavItem to="/dashboard" icon={Briefcase} label="Delegates" number={colSizeDelegates} hover={hover} hoverNumber={1} />
-                <NavItem to="/dashboard" icon={Briefcase} label="Delegates" number={colSizeDelegates} hover={hover} hoverNumber={2} />
+                <NavItem to="/dashboard" icon={LayoutDashboardIcon} label="Dashboard" hover={hover} hoverNumber={1} />
+                <NavItem to="/delegates" icon={Briefcase} label="Delegates" number={colSizeDelegates} hover={hover} hoverNumber={2} />
                 <NavItem to="/companies-dashboard" icon={Briefcase} label="Companies" number={colSizeCompanies} hover={hover} hoverNumber={3} />
-                <NavItem to="/delegates-archive" icon={Archive} label="Delegates Archive" hover={hover} hoverNumber={2} />
-                <NavItem to="/companies-archive" icon={Archive} label="Companies Archive" hover={hover} hoverNumber={4} />
+                <NavItem to="/delegates-archive" icon={Archive} label="Delegates Archive" hover={hover} hoverNumber={4} />
+                <NavItem to="/companies-archive" icon={Archive} label="Companies Archive" hover={hover} hoverNumber={5} />
 
                 <div className='my-2 self-center flex lg:hidden'>
 
@@ -92,7 +92,7 @@ const Navbar = ({ hover }) => {
                 </div>
 
             </nav>
-            <div className='mt-12 hidden lg:flex'>
+            <div className='my-2 mt-4 hidden lg:flex'>
 
                 <Button onClick={logout}>Logout</Button>
             </div>

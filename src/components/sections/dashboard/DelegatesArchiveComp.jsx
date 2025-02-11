@@ -112,51 +112,51 @@ const DelegatesArchiveComp = () => {
                     {filter === "Rejected" && <p>There are no rejected delegation applications.</p>}
                 </div>
             ) : (
-                        <>
-                <div className='flex mx-auto w-full items-start justify-start max-h-96 text-[15px] overflow-auto'>
-                    <table className='w-full overflow-auto'>
-                        <TableHeader>
-                            <TableRow>
-                                <TableHead>First Name</TableHead>
-                                <TableHead>Last Name</TableHead>
-                                <TableHead>Email</TableHead>
-                                <TableHead>Phone</TableHead>
-                                <TableHead>Address</TableHead>
-                                <TableHead>Status</TableHead>
-                                <TableHead>Submission Time</TableHead>
-                                <TableHead>Details</TableHead>
-                            </TableRow>
-                        </TableHeader>
-                        <TableBody>
-                            {filteredData.map((delegation) => (
-                                <TableRow key={delegation.id}>
-                                    <TableCell>{delegation.firstName.length > 10 ? delegation.firstName.slice(0, 10) + "..." : delegation.firstName}</TableCell>
-                                    <TableCell>{delegation.lastName.length > 10 ? delegation.lastName.slice(0, 10) + "..." : delegation.lastName}</TableCell>
-                                    <TableCell>{delegation.email.length > 25 ? delegation.email.slice(0, 25) + "..." : delegation.email}</TableCell>
-                                    <TableCell>{delegation.phone.length > 10 ? delegation.phone.slice(0, 10) + "..." : delegation.phone}</TableCell>
-                                    <TableCell>{delegation.address.length > 20 ? delegation.address.slice(0, 20) + "..." : delegation.address}</TableCell>
-                                    <TableCell>
-                                        <span className={`px-3 text-center py-1 text-[13px] font-semibold rounded-3xl text-white ${delegation.status === "Approved" ? "bg-green-500" : "bg-red-500"}`}>
-                                            {delegation.status}
-                                        </span>
-                                    </TableCell>
-                                    <TableCell>{delegation.submissionTime}</TableCell>
-                                    <TableCell>
-                                        <Button className='text-white font-semibold text-xs w-28 h-18'>
-                                            <Link to={`/delegation/${delegation.id}`}>View Details</Link>
-                                        </Button>
-                                    </TableCell>
+                <>
+                    <div className='flex mx-auto w-full items-start justify-start max-h-96 text-[15px] overflow-auto'>
+                        <table className='w-full overflow-auto'>
+                            <TableHeader>
+                                <TableRow>
+                                    <TableHead>First Name</TableHead>
+                                    <TableHead>Last Name</TableHead>
+                                    <TableHead>Email</TableHead>
+                                    <TableHead>Phone</TableHead>
+                                    <TableHead>Address</TableHead>
+                                    <TableHead>Status</TableHead>
+                                    <TableHead>Submission Time</TableHead>
+                                    <TableHead>Details</TableHead>
                                 </TableRow>
+                            </TableHeader>
+                            <TableBody>
+                                {filteredData.map((delegation) => (
+                                    <TableRow key={delegation.id}>
+                                        <TableCell>{delegation.firstName.length > 10 ? delegation.firstName.slice(0, 10) + "..." : delegation.firstName}</TableCell>
+                                        <TableCell>{delegation.lastName.length > 10 ? delegation.lastName.slice(0, 10) + "..." : delegation.lastName}</TableCell>
+                                        <TableCell>{delegation.email.length > 25 ? delegation.email.slice(0, 25) + "..." : delegation.email}</TableCell>
+                                        <TableCell>{delegation.phone.length > 10 ? delegation.phone.slice(0, 10) + "..." : delegation.phone}</TableCell>
+                                        <TableCell>{delegation.address.length > 20 ? delegation.address.slice(0, 20) + "..." : delegation.address}</TableCell>
+                                        <TableCell>
+                                            <span className={`px-3 text-center py-1 text-[13px] font-semibold rounded-3xl text-white ${delegation.status === "Approved" ? "bg-green-500" : "bg-red-500"}`}>
+                                                {delegation.status}
+                                            </span>
+                                        </TableCell>
+                                        <TableCell>{delegation.submissionTime}</TableCell>
+                                        <TableCell>
+                                            <Button className='text-white font-semibold text-xs w-28 h-18'>
+                                                <Link to={`/delegation/${delegation.id}`}>View Details</Link>
+                                            </Button>
+                                        </TableCell>
+                                    </TableRow>
 
-                            ))}
-                        </TableBody>
-                    </table>
-                </div>
-            <div className="mt-4 flex justify-between w-full max-w-lg">
-                <Button className="text-white font-semibold bg-primary text-xs w-28 disabled:opacity-50" onClick={handleGetPreviousPage} disabled={!firstDoc}>Previous Page</Button>
-                <Button className="text-white font-semibold text-xs w-28 disabled:opacity-50" onClick={handleGetNextPage} disabled={!lastDoc}>Next Page</Button>
-            </div>
-            </>
+                                ))}
+                            </TableBody>
+                        </table>
+                    </div>
+                    <div className="mt-4 flex justify-between w-full max-w-lg">
+                        <Button className="text-white font-semibold bg-primary text-xs w-28 disabled:opacity-50" onClick={handleGetPreviousPage} disabled={!firstDoc}>Previous Page</Button>
+                        <Button className="text-white font-semibold text-xs w-28 disabled:opacity-50" onClick={handleGetNextPage} disabled={!lastDoc}>Next Page</Button>
+                    </div>
+                </>
             )}
 
 
