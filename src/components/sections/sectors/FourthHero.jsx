@@ -36,7 +36,7 @@ const FourthHero = () => {
                             whileInView={{ x: 0, opacity: 1 }}
                             initial={{ x: 150, opacity: 0 }}
                             transition={{ duration: 0.9 }}
-                            className='text-5xl  font-bold leading-relaxed'
+                            className='text-4xl md:text-5xl  font-bold leading-relaxed'
                         >
                             {heroContent[language].title}
                         </motion.h1>
