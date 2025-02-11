@@ -17,6 +17,8 @@ import Companies from './pages/Companies';
 import CompaniesArchive from './pages/CompaniesArchive';
 import CompanyDetails from './pages/CompanyDetails';
 import MainDashboard from './pages/MainDashboard';
+import CompaniesArchivedetails from './pages/CompaniesArchivedetails';
+import DelegateArchiveDetails from './pages/DelegateArchiveDetails';
 
 function Layout() {
     const location = useLocation();
@@ -37,8 +39,10 @@ function Layout() {
                     <Route path="/dashboard" element={<MainDashboard />} />
                     <Route path="/delegate/:id" element={<Delegate />} />
                     <Route path="/delegates-archive" element={<DelegateArchive />} />
+                    <Route path="/delegates-archive/:id" element={<DelegateArchiveDetails />} />
                     <Route path="/companies-dashboard" element={<Companies />} />
                     <Route path="/companies-archive" element={<CompaniesArchive />} />
+                    <Route path="/companies-archive/:id" element={<CompaniesArchivedetails />} />
                     <Route path="/company/:id" element={<CompanyDetails />} />
 
 
