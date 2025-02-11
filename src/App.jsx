@@ -19,6 +19,7 @@ import CompanyDetails from './pages/CompanyDetails';
 import MainDashboard from './pages/MainDashboard';
 import CompaniesArchivedetails from './pages/CompaniesArchivedetails';
 import DelegateArchiveDetails from './pages/DelegateArchiveDetails';
+import Places from './pages/Places';
 
 function Layout() {
     const location = useLocation();
@@ -30,6 +31,7 @@ function Layout() {
             <Routes>
                 <Route path="/" element={<Landing />} />
                 <Route path="/joinUs" element={<JoinOurFleet />} />
+                <Route path="/places" element={<Places />} />
                 <Route path="/shipment" element={<Trackshipment />} />
                 <Route path="/admin" element={<AdminLogin />} />
                 <Route path="/sectors" element={<Sectors />} />

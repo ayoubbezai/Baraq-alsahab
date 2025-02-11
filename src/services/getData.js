@@ -79,3 +79,21 @@ export const getColSize = async (collectionName) => {
   const snapshot = await getDocs(collectionRef);
   return snapshot.size;
 };
+
+
+
+export const getPlaces = async ()=>{
+  const dataRef = doc(collection(db, "other","places"));
+  try{
+    const docSnap = await getDoc(dataRef)
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      return data;
+    } else {
+      console.error("No such document!");
+      return null; 
+    }
+  }catch{
+    console.log("error fetching places ")
+  }
+}
