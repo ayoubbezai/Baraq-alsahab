@@ -61,12 +61,15 @@ const Navbar = ({ hover }) => {
             </div>
 
             {/* Notification Bell */}
-            <div className="relative hidden lg:block mb-6">
+            <div className="relative hidden  lg:flex flex-col items-center mb-6">
                 <Bell className="text-white w-5 h-5" />
                 {!loading && totalNotifications > 0 && (
                     <span className="absolute   -top-1 -right-2 bg-red-600 text-white text-[9.5px]  font-bold w-4 h-4 flex items-center justify-center rounded-full">
                         {totalNotifications}
                     </span>
+                )}
+                {!loading && totalNotifications === 0 && (
+                    <p className="text-gray-300 text-xs mt-4 hidden lg:flex">No New Notification.</p>
                 )}
             </div>
 
@@ -74,16 +77,14 @@ const Navbar = ({ hover }) => {
             <nav className={`flex flex-col gap-2 text-sm w-full ${isOpen ? 'block' : 'hidden'} lg:flex`}>
 
                 <NavItem to="/dashboard" icon={Briefcase} label="Delegates" number={colSizeDelegates} hover={hover} hoverNumber={1} />
-                <NavItem to="/delegates-archive" icon={Archive} label="Delegates Archive" hover={hover} hoverNumber={2} />
                 <NavItem to="/companies-dashboard" icon={Briefcase} label="Companies" number={colSizeCompanies} hover={hover} hoverNumber={3} />
+                <NavItem to="/delegates-archive" icon={Archive} label="Delegates Archive" hover={hover} hoverNumber={2} />
                 <NavItem to="/companies-archive" icon={Archive} label="Companies Archive" hover={hover} hoverNumber={4} />
 
             </nav>
 
             {/* Show message if no elements exist */}
-            {!loading && totalNotifications === 0 && (
-                <p className="text-white text-sm mt-4">No elements found.</p>
-            )}
+
         </div>
     );
 };

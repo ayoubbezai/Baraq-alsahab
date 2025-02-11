@@ -1,14 +1,15 @@
 import React from 'react'
 import Navbar from '../components/sections/dashboard/Nabar'
-
+import CompaniesArchiveComp from '../components/sections/dashboard/CompaniesArchiveComp'
 const CompaniesArchive = () => {
   return (
-      <div className='flex '>
-          <Navbar hover={4} />
-          <div className='w-full mx-auto px-8'>
+    <div className='flex flex-col lg:flex-row '>
+      <Navbar hover={4} />
+      <div className='w-full mx-auto overflow-y-auto'>
 
-          </div>
+        <CompaniesArchiveComp />
       </div>
+    </div>
   )
 }
 

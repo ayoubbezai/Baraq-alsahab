@@ -5,7 +5,7 @@ const Dashboard = () => {
     return (
         <div className='flex flex-col lg:flex-row '>
             <Navbar hover={1} />
-            <div className='w-full mx-auto'>
+            <div className='w-full mx-auto overflow-y-auto'>
 
                 <HomeSection />
             </div>

@@ -6,7 +6,7 @@ const Companies = () => {
   return (
     <div className='flex flex-col lg:flex-row '>
       <Navbar hover={3} />
-      <div className='w-full mx-auto'>
+      <div className='w-full mx-auto overflow-y-auto'>
 
         <CompaniesDashboard />
       </div>
