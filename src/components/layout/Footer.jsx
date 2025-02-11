@@ -18,7 +18,7 @@ const Footer = () => {
     return (
         <>
             {/* Animated Triangles */}
-            <div className={`flex`}>
+            <div className={`flex bg-gray-100`}>
                 {/* Left Triangle (Upside Down) */}
                 <motion.div
                     initial={{ x: -60, opacity: 0 }}
@@ -82,7 +82,7 @@ const Footer = () => {
                         </h3>
                         <ul className="space-y-2">
                             <li>
-                                <a href="/about" className="text-gray-300 hover:text-gray-100">
+                                <a href="/" className="text-gray-300 hover:text-gray-100">
                                     {language === "ar" ? "من نحن" : "About Us"}
                                 </a>
                             </li>

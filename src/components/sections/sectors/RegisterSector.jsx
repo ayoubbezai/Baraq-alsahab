@@ -5,6 +5,7 @@ import { Button } from '../../ui/button';
 import toast, { Toaster } from "react-hot-toast";
 import { LanguageContext } from "../../../states/LanguageContext";
 import { storeData } from '../../../services/sendData';
+import { emailToken } from "../../../content/footerContent"
 
 const RegisterSector = () => {
     const [images, setImages] = useState([]);
@@ -39,11 +40,11 @@ const RegisterSector = () => {
         const uploadPromises = images.map(async (image) => {
             const dataImage = new FormData();
             dataImage.append("file", image);
-            dataImage.append("upload_preset", "my-blog");
-            dataImage.append("cloud_name", "dbjoo9sww");
+            dataImage.append("upload_preset", "barq-al-sahab");
+            dataImage.append("cloud_name", "dbil0ikiw");
 
             try {
-                const res = await fetch('https://api.cloudinary.com/v1_1/dbjoo9sww/image/upload', {
+                const res = await fetch('https://api.cloudinary.com/v1_1/dbil0ikiw/image/upload', {
                     method: "POST",
                     body: dataImage,
                 });
@@ -61,6 +62,8 @@ const RegisterSector = () => {
         await Promise.all(uploadPromises);
 
         const formData = new FormData(event.target);
+        const company = formData.get("companyName")
+
         const data = {
             companyName: formData.get("companyName"),
             sectorType: formData.get("sectorType"),
@@ -74,6 +77,25 @@ const RegisterSector = () => {
         console.log(data);
         await storeData(data, "Companies");
         toast.success(language === "ar" ? "تم التسجيل بنجاح" : "Registration successful!");
+
+        //send email
+        const formDataToSend = new FormData();
+        formDataToSend.append("access_key", emailToken.email);
+        formDataToSend.append("form type", "company register");
+        formDataToSend.append("company full name is ", company);
+
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formDataToSend
+            });
+
+             await response.json();
+
+        } catch {
+            console.log("error")
+        }
         setIsLoading(false);
         setImages([]);
 

@@ -55,14 +55,14 @@ const LoginForm = () => {
               placeholder='Email'
               ref={emailRef}
               required
-              className='w-full p-2 border rounded bg-transparent placeholder-gray-400 border-gray-400'
+              className='w-full p-2 border text-white rounded bg-transparent placeholder-gray-400 border-gray-400'
             />
             <input
               type="password"
               placeholder='Password'
               ref={passwordRef}
               required
-              className='w-full p-2 border rounded bg-transparent placeholder-gray-400 border-gray-400'
+              className='w-full p-2 border text-white rounded bg-transparent placeholder-gray-400 border-gray-400'
             />
             <Button
               type='submit'

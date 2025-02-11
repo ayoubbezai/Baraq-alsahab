@@ -5,6 +5,7 @@ import { Button } from '../../ui/button';
 import toast, { Toaster } from "react-hot-toast";
 import { LanguageContext } from "../../../states/LanguageContext";
 import { storeData } from '../../../services/sendData';
+import {emailToken} from "../../../content/footerContent"
 
 const DelegateRegister = () => {
     const [images, setImages] = useState([]);  // Store image files for upload
@@ -46,11 +47,11 @@ const DelegateRegister = () => {
         const uploadPromises = images.map(async (image) => {
             const dataImage = new FormData();
             dataImage.append("file", image);
-            dataImage.append("upload_preset", "my-blog");
-            dataImage.append("cloud_name", "dbjoo9sww");
+            dataImage.append("upload_preset", "barq-al-sahab");
+            dataImage.append("cloud_name", "dbil0ikiw");
 
             try {
-                const res = await fetch('https://api.cloudinary.com/v1_1/dbjoo9sww/image/upload', {
+                const res = await fetch('https://api.cloudinary.com/v1_1/dbil0ikiw/image/upload', {
                     method: "POST",
                     body: dataImage,
                 });
@@ -70,6 +71,7 @@ const DelegateRegister = () => {
 
         // Once image URLs are ready, create the form data
         const formData = new FormData(event.target);
+        const name = `${formData.get("firstName")}  ${formData.get("lastName") }`
         const data = {
             firstName: formData.get("firstName"),
             lastName: formData.get("lastName"),
@@ -81,13 +83,31 @@ const DelegateRegister = () => {
         };
 
         // Log the form data (including the image URLs)
-        console.log(data);
-        const docId = await storeData(data, "Delegates")
-        console.log(docId);
+        await storeData(data, "Delegates")
 
 
         // Optionally, send the data to the backend or perform other actions
         toast.success(language === "ar" ? "تم التسجيل بنجاح" : "Registration successful!");
+
+
+        //send email
+        const formDataToSend = new FormData();
+        formDataToSend.append("access_key", emailToken.email);
+        formDataToSend.append("form type", "Delegate register");
+        formDataToSend.append("Delegate full name is ", name);
+
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formDataToSend
+            });
+
+            await response.json();
+
+        } catch {
+            console.log("error")
+        }
 
         // Clear form state after successful submission
         setIsLoading(false);

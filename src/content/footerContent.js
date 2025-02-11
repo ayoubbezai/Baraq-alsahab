@@ -3,12 +3,16 @@ const socialMediaLink = {
 };
 
 const contactInfo = {
-  email: "email@example.com",
-  phoneNumber: "+123 456 7890",
+  email: "barq.alsahab1@gmail.com",
+  phoneNumber: "+966 9200 31890",
   address: {
-    en: "123 Street, City, Country",
-    ar: "١٢٣ شارع، المدينة، الدولة",
+    en: "Makkah - Al-Zaydi District",
+    ar: "مكة المكرمة - حي الزايدي",
   },
 };
 
-export { socialMediaLink, contactInfo };
+const emailToken = {
+  email: "99c5e7f9-c94a-4e59-b83a-7f340a44433d",
+};
+
+export { socialMediaLink, contactInfo, emailToken };

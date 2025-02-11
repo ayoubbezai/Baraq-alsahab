@@ -42,7 +42,7 @@ const SectorsSection = () => {
                     transition={{ duration: 0.9, delay: 0.2 }}
                     className="text-4xl font-semibold my-2"
                 >
-                    {content.subtitle} <span className="text-secondary">بتميز</span>
+                    {content.subtitle} <span className="text-secondary"> {language === "ar" ? "بتميز" :"distinction"}</span>
                 </motion.h3>
             </div>
 
