@@ -30,7 +30,7 @@ const CompaniesDashboard = () => {
                 <p className="text-lg text-gray-500 mt-6">No new applications available.</p>
             ) : (
                     <div className='flex mx-auto w-full items-start justify-start max-h-96  text-sm overflow-auto'>
-                    <table className='w-full overflow-auto'>
+                        <table className='w-full overflow-auto bg-white'>
                         <TableHeader>
                             <TableRow>
                                 <TableHead>Company Name</TableHead>

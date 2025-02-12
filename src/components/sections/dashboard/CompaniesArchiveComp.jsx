@@ -124,7 +124,7 @@ const CompaniesArchiveComp = () => {
       ) : (
         <>
           <div className='flex mx-auto w-full items-start justify-start max-h-96  text-[15px] overflow-auto'>
-          <table className='w-full overflow-auto'>
+                <table className='w-full overflow-auto bg-white'>
             <TableHeader>
               <TableRow>
                 <TableHead>Company Name</TableHead>

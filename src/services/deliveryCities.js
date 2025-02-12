@@ -41,3 +41,8 @@ export const changeState = async (cityId, isOpen) => {
     console.error("Error updating city state:", error);
   }
 };
+
+export const sendData = async (newCities) => {
+  const docRef = doc(db, "other", "cities");
+  await updateDoc(docRef, newCities);
+};
