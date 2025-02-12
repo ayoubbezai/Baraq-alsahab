@@ -6,7 +6,7 @@ const ChangeDeliveryPlaces = () => {
   return (
       <div className='flex flex-col lg:flex-row '>
           <Navbar hover={6} />
-          <div className='w-full mx-auto overflow-y-auto bg-gray-100'>
+          <div className='w-full mx-auto max-h-screen overflow-y-auto bg-gray-100'>
 
               <AddDeliveryPlaces />
           </div>

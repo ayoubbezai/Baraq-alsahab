@@ -53,8 +53,9 @@ const AddDeliveryPlaces = () => {
                             <TableCell className="text-right">{city.ar}</TableCell>
                             <TableCell>
                                 <Button
-                                    variant={city.isOpen ? "destructive" : "default"}
+                                    variant={city.isOpen ? "secondary" : "default"}
                                     onClick={() => toggleCityState(city.id, city.isOpen)}
+                                    className="text-white w-28"
                                 >
                                     {city.isOpen ? "Remove" : "Add"}
                                 </Button>
