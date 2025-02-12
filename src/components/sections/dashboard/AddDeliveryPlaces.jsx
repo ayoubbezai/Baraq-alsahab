@@ -1,112 +1,68 @@
-import React, { useEffect, useState } from 'react';
-import { getPlaces } from '../../../services/getData';
-import { addPlace } from '../../../services/sendData';
-import { removePlace } from '../../../services/deleteUser';
-import { Button } from '../../../components/ui/button';
-import { Input } from '../../../components/ui/input';
-import { motion } from 'framer-motion';
-import toast, { Toaster } from 'react-hot-toast';
+import React, { useEffect, useState } from "react";
+import { getCities, changeState } from "../../../services/deliveryCities";
+import { Button } from "../../../components/ui/button";
+import { Table, TableHeader, TableBody, TableRow, TableCell, TableHead } from "../../../components/ui/table";
 
 const AddDeliveryPlaces = () => {
-    const [placesData, setPlacesData] = useState([]);
-    const [newPlace, setNewPlace] = useState('');
+    const [cities, setCities] = useState([]);
 
     useEffect(() => {
-        fetchPlaces();
+        const handleGetCities = async () => {
+            try {
+                const data = await getCities();
+                setCities(data?.cities || []);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+
+        handleGetCities();
     }, []);
 
-    const fetchPlaces = async () => {
+    const toggleCityState = async (cityId, isOpen) => {
         try {
-            const data = await getPlaces();
-            setPlacesData(data?.places || []);
+            await changeState(cityId, !isOpen);
+            setCities((prevCities) =>
+                prevCities.map((city) =>
+                    city.id === cityId ? { ...city, isOpen: !isOpen } : city
+                )
+            );
         } catch (error) {
-            console.error("Error fetching places:", error);
-            toast.error("❌ فشل في جلب المناطق المتاحة.");
-        }
-    };
-
-    const handleAddPlace = async () => {
-        if (newPlace.trim()) {
-            try {
-                await addPlace(newPlace);
-                toast.success("✅ تمت إضافة المنطقة بنجاح!");
-                setNewPlace('');
-                fetchPlaces();
-            } catch (error) {
-                console.error("Error adding place:", error);
-                toast.error("❌ فشل في إضافة المنطقة.");
-            }
-        } else {
-            toast("⚠️ يرجى إدخال اسم منطقة صالح.", { icon: "⚠️" });
-        }
-    };
-
-    const handleRemovePlace = async (placeToRemove) => {
-        try {
-            await removePlace(placeToRemove);
-            toast.success("🗑️ تمت إزالة المنطقة بنجاح!");
-            fetchPlaces();
-        } catch (error) {
-            console.error("Error removing place:", error);
-            toast.error("❌ فشل في إزالة المنطقة.");
+            console.error("Error updating city state:", error);
         }
     };
 
     return (
-        <div className='bg-gray-100 min-h-screen flex flex-col font-arabic items-center'>
-            <Toaster position="top-center" reverseOrder={false} />
-            
-            <motion.h1
-                className='text-5xl font-extrabold text-primary my-6'
-                initial={{ y: -20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-            >
-                إدارة <span className='text-yellow-400'>مناطق التوصيل</span>
-            </motion.h1>
-            <div className='flex gap-4 mb-6'>
-                <Input
-                    type='text'
-                    value={newPlace}
-                    onChange={(e) => setNewPlace(e.target.value)}
-                    placeholder='أضف منطقة جديدة'
-                    className='p-2 rounded-md border text-primary shadow-sm text-right outline-none'
-                />
-                <Button onClick={handleAddPlace} className='  text-white p-2 px-4 rounded-md shadow-lg'>
-                    إضافة
-                </Button>
-            </div>
-            <motion.div
-                className='flex flex-wrap justify-center px-4 gap-6 w-full max-w-5xl'
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.7 }}
-            >
-                {placesData.length > 0 ? (
-                    placesData.map((place, index) => (
-                        <motion.div
-                            key={index}
-                            className='bg-white text-primary p-5 rounded-xl shadow-md text-center text-lg font-semibold hover:bg-secondary hover:text-white w-72 flex justify-between items-center'
-                            whileHover={{ scale: 1.05 }}
-                            transition={{ duration: 0.3 }}
-                        >
-                            {place}
-                            <Button onClick={() => handleRemovePlace(place)} className='bg-red-500 hover:bg-red-700 text-white p-2 rounded-md ml-4'>
-                                حذف
-                            </Button>
-                        </motion.div>
-                    ))
-                ) : (
-                    <motion.p
-                        className='text-gray-400 text-lg text-center'
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        لا توجد مناطق متاحة حاليًا
-                    </motion.p>
-                )}
-            </motion.div>
+        <div className="p-6 bg-white rounded-lg shadow">
+            <h2 className="text-2xl font-bold mb-4">Manage Delivery Cities</h2>
+
+            <Table>
+                <TableHeader>
+                    <TableRow>
+                        <TableHead>ID</TableHead>
+                        <TableHead>English Name</TableHead>
+                        <TableHead>Arabic Name</TableHead>
+                        <TableHead>Action</TableHead>
+                    </TableRow>
+                </TableHeader>
+                <TableBody>
+                    {cities.map((city) => (
+                        <TableRow key={city.id}>
+                            <TableCell>{city.id}</TableCell>
+                            <TableCell>{city.en}</TableCell>
+                            <TableCell className="text-right">{city.ar}</TableCell>
+                            <TableCell>
+                                <Button
+                                    variant={city.isOpen ? "destructive" : "default"}
+                                    onClick={() => toggleCityState(city.id, city.isOpen)}
+                                >
+                                    {city.isOpen ? "Remove" : "Add"}
+                                </Button>
+                            </TableCell>
+                        </TableRow>
+                    ))}
+                </TableBody>
+            </Table>
         </div>
     );
 };
