@@ -3,11 +3,11 @@ import { db } from "../config/firebase-config";
 
 // ✅ Function to Get Cities from Firestore
 export const getCities = async () => {
-  const docRef = doc(db, "other", "cities"); // ✅ Correct way to reference document
+  const docRef = doc(db, "other", "cities"); 
   try {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
-      return docSnap.data(); // ✅ Returns { cities: [...] }
+      return docSnap.data();
     } else {
       console.log("This document does not exist");
       return null;
