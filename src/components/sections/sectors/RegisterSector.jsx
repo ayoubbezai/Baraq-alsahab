@@ -6,7 +6,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { LanguageContext } from "../../../states/LanguageContext";
 import { storeData } from '../../../services/sendData';
 import { emailToken } from "../../../content/footerContent"
-
 const RegisterSector = () => {
     const [images, setImages] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -31,6 +30,8 @@ const RegisterSector = () => {
     const removeImage = (index) => {
         setImages(images.filter((_, i) => i !== index));
     };
+
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();

@@ -1,18 +1,34 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import LogoAr from "../../../assets/logo/big logo arabic yellow .png";
 import LogoEn from "../../../assets/logo/big logo english yellow.png";
 import { Button } from '../../ui/button';
 import toast, { Toaster } from "react-hot-toast";
 import { LanguageContext } from "../../../states/LanguageContext";
 import { storeData } from '../../../services/sendData';
-import {emailToken} from "../../../content/footerContent"
+import { emailToken } from "../../../content/footerContent"
+import { getCities } from '../../../services/deliveryCities';
 
 const DelegateRegister = () => {
     const [images, setImages] = useState([]);  // Store image files for upload
     const [imageUrls, setImageUrls] = useState([]); // Store URLs from Cloudinary
     const [isLoading, setIsLoading] = useState(false); // Manage loading state for button
+    const [cities, setCities] = useState([]);
     const { language } = useContext(LanguageContext);
 
+
+    useEffect(() => {
+        const handleGetCities = async () => {
+            try {
+                const data = await getCities();
+                console.log(data)
+                setCities(data?.saudiCities || []);
+            } catch (e) {
+                console.error(e);
+            }
+        };
+
+        handleGetCities();
+    }, []);
     // Handle image selection
     const handleImageUpload = (event) => {
         const files = Array.from(event.target.files);
@@ -71,7 +87,7 @@ const DelegateRegister = () => {
 
         // Once image URLs are ready, create the form data
         const formData = new FormData(event.target);
-        const name = `${formData.get("firstName")}  ${formData.get("lastName") }`
+        const name = `${formData.get("firstName")}  ${formData.get("lastName")}`
         const data = {
             firstName: formData.get("firstName"),
             lastName: formData.get("lastName"),
@@ -147,7 +163,16 @@ const DelegateRegister = () => {
                         <input type="text" name="lastName" placeholder={language === "ar" ? "اسم العائلة" : "Last Name"} className={`w-full p-2 border rounded bg-transparent text-white placeholder-gray-300 ${language === "ar" && "text-right"}`} required />
                         <input type="email" name="email" placeholder={language === "ar" ? "البريد الإلكتروني" : "Email"} className={`w-full p-2 border rounded bg-transparent text-white placeholder-gray-300 ${language === "ar" && "text-right"}`} required />
                         <input type="tel" name="phone" placeholder={language === "ar" ? "رقم الهاتف" : "Phone Number"} className={`w-full p-2 border rounded bg-transparent text-white placeholder-gray-300 ${language === "ar" && "text-right"}`} required />
-                        <input type="text" name="address" placeholder={language === "ar" ? "العنوان" : "Address"} className={`w-full p-2 border rounded bg-transparent text-white placeholder-gray-300 ${language === "ar" && "text-right"}`} required />
+
+
+                        <select name="address" className={`w-full p-2 border border-gray-300 rounded  ${language === "ar" && "text-right"} bg-white  text-black`}
+                            required>
+                            <option value="" disabled selected>{language === "ar" ? "اختر  عنوانك" : "Choose your adress"} </option>
+                            {cities && cities?.map((city) => (
+                                <option value={city.en} disabled={!city.isOpen}>{language === "ar" ? city.ar : city.en}</option>
+
+                            ))}
+                        </select>
 
                         {/* Image Upload */}
                         <div>
