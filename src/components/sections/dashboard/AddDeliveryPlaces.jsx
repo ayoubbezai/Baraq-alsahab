@@ -12,6 +12,7 @@ const AddDeliveryPlaces = () => {
         const handleGetCities = async () => {
             try {
                 const data = await getCities();
+                console.log(data)
                 setCities(data?.cities || []);
             } catch (e) {
                 console.error(e);
@@ -34,7 +35,7 @@ const AddDeliveryPlaces = () => {
         }
     };
 
-  
+
 
     return (
         <div className="p-6 bg-gray-100 rounded-lg shadow ">
