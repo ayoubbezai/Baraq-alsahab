@@ -23,19 +23,19 @@ export const changeState = async (cityId, isOpen) => {
   const docRef = doc(db, "other", "cities"); // ✅ Correct reference
   const data = await getCities();
 
-  if (!data || !data.cities) {
+  if (!data || !data.saudiCities) {
     console.error("No cities data found");
     return;
   }
 
   try {
     // ✅ Update the isOpen value for the specific city
-    const newCities = data.cities.map((city) =>
+    const newCities = data.saudiCities.map((city) =>
       city.id === cityId ? { ...city, isOpen: isOpen } : city
     );
 
     // ✅ Correct way to update Firestore document
-    await updateDoc(docRef, { cities: newCities });
+    await updateDoc(docRef, { saudiCities: newCities });
     console.log("City state updated successfully");
   } catch (error) {
     console.error("Error updating city state:", error);

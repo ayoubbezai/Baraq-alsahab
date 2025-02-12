@@ -13,7 +13,7 @@ const AddDeliveryPlaces = () => {
             try {
                 const data = await getCities();
                 console.log(data)
-                setCities(data?.cities || []);
+                setCities(data?.saudiCities || []);
             } catch (e) {
                 console.error(e);
             }
