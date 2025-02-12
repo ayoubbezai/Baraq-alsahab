@@ -20,6 +20,7 @@ import MainDashboard from './pages/MainDashboard';
 import CompaniesArchivedetails from './pages/CompaniesArchivedetails';
 import DelegateArchiveDetails from './pages/DelegateArchiveDetails';
 import Places from './pages/Places';
+import ChangeDeliveryPlaces from './pages/ChangeDeliveryPlaces';
 
 function Layout() {
     const location = useLocation();
@@ -46,7 +47,7 @@ function Layout() {
                     <Route path="/companies-archive" element={<CompaniesArchive />} />
                     <Route path="/companies-archive/:id" element={<CompaniesArchivedetails />} />
                     <Route path="/company/:id" element={<CompanyDetails />} />
-
+                    <Route path="/delivery-places" element={<ChangeDeliveryPlaces />} />
 
                 </Route>
 

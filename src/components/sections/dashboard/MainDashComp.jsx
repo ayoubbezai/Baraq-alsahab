@@ -35,15 +35,15 @@ const Card = ({ title, value, backgroundColor, textColor }) => {
 
     return (
         <motion.div
-            className={`px-4 py-2 rounded-3xl shadow-lg  ${backgroundColor} ${textColor} text-center w-60 relative`}
+            className={`p-2  rounded-xl shadow-lg  ${backgroundColor} ${textColor} text-center w-52 relative`}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
         >
-            <h3 className="text-lg font-semibold">{title}</h3>
-            <p className="text-2xl font-bold mt-2">{animatedValue}</p>
+            <h3 className="text-base font-semibold">{title}</h3>
+            <p className="text-xl font-bold mt-2">{animatedValue}</p>
 
         </motion.div>
     );
@@ -68,17 +68,17 @@ const MainDashComp = () => {
     }, []);
 
     return (
-        <div className='flex flex-col items-center justify-center font-sans px-6 py-8 md:py-12'>
+        <div className='flex flex-col items-center justify-center font-sans px-6 py-8 md:py-10'>
             <h1 className='text-4xl font-bold text-center mb-6 text-primary'>
                 Welcome to <span className='text-secondary'>Barq Al Sahab</span>
             </h1>
             <h2 className='text-2xl font-medium text-gray-700 mb-4'>Dashboard Overview</h2>
             <div className='mb-6 p-4 bg-purple-600 text-white rounded-lg shadow-lg text-center'>
-                <h3 className='text-lg font-semibold'>Total New Applications</h3>
-                <p className='text-2xl font-bold'>{useCountUp(totalNewApplications)}</p>
+                <h3 className='text-base font-semibold'>Total New Applications</h3>
+                <p className='text-xl font-bold'>{useCountUp(totalNewApplications)}</p>
             </div>
             <motion.div
-                className='grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6 mt-4'
+                className='flex flex-wrap justify-center gap-x-12 gap-y-6 mt-4'
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8 }}
