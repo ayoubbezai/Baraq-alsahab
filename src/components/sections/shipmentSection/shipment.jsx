@@ -117,7 +117,7 @@ const Shipment = () => {
 
                 <Button
                     onClick={handleTrackOrder}
-                    className='w-full py-3 text-lg bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300'
+                    className='w-full py-3 text-lg  text-white rounded-md transition duration-300'
                     disabled={isLoading}
                 >
                     {content[language].buttonText}
