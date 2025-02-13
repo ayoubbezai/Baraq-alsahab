@@ -220,6 +220,15 @@ const Navbar = () => {
                                 {language === "ar" ? "اتصل بنا" : "Contact Us"}
                             </Link>
                         </motion.li>
+                        <motion.li whileHover={{ scale: 1.1 }}>
+
+                            <Link to="/shipment">
+                                <Button variant="secondary" className="font-semibold">
+                                    {language === "ar" ? "تتبع شحنتك" : "Track your shipment"}
+                                </Button>
+                            </Link>
+                        </motion.li>
+
 
 
                         <motion.li whileHover={{ scale: 1.1 }}>
