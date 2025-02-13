@@ -6,7 +6,7 @@ export const trackOrder = async (orderId) => {
 
   try {
     const response = await fetch(
-      `https://barq-backend.onrender.com/track/12345`,
+      `https://barq-backend.onrender.com/track/${orderId}`,
       {
         method: "GET",
         headers: {
