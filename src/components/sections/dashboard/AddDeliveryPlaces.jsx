@@ -41,8 +41,9 @@ const AddDeliveryPlaces = () => {
         <div className="p-6 bg-gray-100 rounded-lg shadow ">
             <h2 className="text-2xl font-bold mb-4">Manage Delivery Cities</h2>
 
-            <Table classname={"bg-white"}>
-                <TableHeader>
+
+          <div className='flex mx-auto w-full items-start justify-start   overflow-auto'>
+                <table className='w-full overflow-auto bg-white'>                <TableHeader>
                     <TableRow>
                         <TableHead>ID</TableHead>
                         <TableHead>English Name</TableHead>
@@ -68,7 +69,8 @@ const AddDeliveryPlaces = () => {
                         </TableRow>
                     ))}
                 </TableBody>
-            </Table>
+            </table>
+        </div>
         </div>
     );
 };
