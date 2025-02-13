@@ -27,6 +27,7 @@ const Shipment = () => {
 
             const data = await trackOrder(order)
             console.log(data)
+            console.log(data[0])
         } catch (error) {
             console.log(error)
         }
