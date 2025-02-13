@@ -66,7 +66,7 @@ const Shipment = () => {
             }
 
             // Successfully received data, now set it
-            const lastData = data[0];
+            const lastData = data[0]; // Assuming `data[0]` contains the latest tracking data
             const TrackingStatus_Ar = lastData.TrackingStatus_Ar;
             const TrackingStatus_En = lastData.TrackingStatus_En;
             const note = lastData.Note;
@@ -76,7 +76,7 @@ const Shipment = () => {
                 note: note
             });
 
-            setMessage({ ar: content["ar"].successMessage, en: content["en"].successMessage }); // Set success message
+            setMessage({ ar: "", en: "" }); // Clear success message, as the tracking data is now shown
 
         } catch (error) {
             console.log(error);
