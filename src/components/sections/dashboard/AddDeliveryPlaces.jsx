@@ -38,7 +38,7 @@ const AddDeliveryPlaces = () => {
 
 
     return (
-        <div className="p-6 bg-gray-100 rounded-lg shadow ">
+        <div className="py-6 px-2 md:px-6 bg-gray-100 rounded-lg shadow ">
             <h2 className="text-2xl font-bold mb-4">Manage Delivery Cities</h2>
 
 
