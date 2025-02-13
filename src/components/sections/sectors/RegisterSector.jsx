@@ -92,7 +92,7 @@ const RegisterSector = () => {
                 body: formDataToSend
             });
 
-             await response.json();
+            await response.json();
 
         } catch {
             console.log("error")
@@ -133,12 +133,22 @@ const RegisterSector = () => {
                         <input type="text" name="companyName" placeholder={language === "ar" ? "اسم الشركة أو المؤسسة" : "Company Name"} className={`w-full p-2 border rounded bg-transparent text-white placeholder-gray-300 ${language === "ar" && "text-right"}`} required />
                         <select name="sectorType" className={`w-full p-2 border border-gray-300 rounded  ${language === "ar" && "text-right"} bg-white  text-black`}
                             required>
-                            <option value="" disabled selected>{language === "ar" ? "اختر القطاع" : "Choose an sector"} </option>
+                            <option value="" disabled selected>
+                                {language === "ar" ? "اختر القطاع" : "Choose a sector"}
+                            </option>
+                            <option value="retail">
+                                {language === "ar" ? "قطاع التجارة بالتجزئة والأسواق المحلية" : "Retail and Local Markets Sector"}
+                            </option>
+                            <option value="social-commerce">
+                                {language === "ar" ? "قطاع تجارة شبكات التواصل الاجتماعي" : "Social Commerce Sector"}
+                            </option>
+                            <option value="telecom">
+                                {language === "ar" ? "شركات الاتصالات" : "Telecommunications Companies"}
+                            </option>
+                            <option value="e-commerce">
+                                {language === "ar" ? "قطاع التجارة الإلكترونية" : "E-Commerce Sector"}
+                            </option>
 
-                            <option value="retail">قطاع التجارة بالتجزئة والأسواق المحلية</option>
-                            <option value="social-commerce">قطاع تجارة شبكات التواصل الاجتماعي</option>
-                            <option value="telecom">شركات الاتصالات</option>
-                            <option value="e-commerce">قطاع التجارة الإلكترونية</option>
                         </select>
                         <select name="entityType" className={`w-full p-2 border border-gray-300 rounded  ${language === "ar" && "text-right"} bg-white  text-black`}
                             required>
