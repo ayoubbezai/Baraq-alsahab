@@ -1,29 +1,51 @@
 export const trackOrder = async (orderId) => {
-  const url = `https://rest.fizzpa.net/api/Tracking/${orderId}`;
-  const apiKey = "j8543k8W6lAynA0up2ajayqhYtXCW2Ub";
-  const REFERER = "https://baraq-alsahab.vercel.app/";
+  if (!orderId) {
+    console.error("❌ Error: orderId is missing!");
+    return null;
+  }
+
+  // Use environment variable for the API key
+  const apiKey = import.meta.env.VITE_API_KEY;
+
+  // Check if the API key is defined
+  if (!apiKey) {
+    console.error("❌ Error: API key is missing! Ensure the following:");
+    console.error("1. The .env file is in the root of your project.");
+    console.error(
+      "2. The variable is prefixed with VITE_ (e.g., VITE_API_KEY)."
+    );
+    console.error(
+      "3. You have restarted the development server after adding the .env file."
+    );
+    return null;
+  }
 
   try {
-    const response = await fetch(url, {
+    // Use a CORS proxy to bypass CORS restrictions
+    const proxyUrl = "https://cors-anywhere.herokuapp.com/"; // CORS proxy
+    const apiUrl = `https://rest.fizzpa.net/api/Tracking/${orderId}`; // Original API URL
+
+    const response = await fetch(proxyUrl + apiUrl, {
       method: "GET",
       headers: {
-        Authorization: apiKey, // No "Bearer", since Postman worked without it
-        Referer: REFERER, // Ensure correct capitalization
+        Authorization: apiKey, // Pass the API key directly
         "Content-Type": "application/json",
+        Referer: "https://baraq-alsahab.vercel.app/", // Keep if required by the API
       },
     });
 
+    console.log("Response Status:", response.status);
+
     if (!response.ok) {
-      throw new Error(
-        `خطأ في الطلب: ${response.status} - ${response.statusText}`
-      );
+      const errorText = await response.text();
+      throw new Error(`Request failed: ${response.status} - ${errorText}`);
     }
 
     const data = await response.json();
-    console.log("بيانات التتبع:", data);
+    console.log("Tracking data:", data);
     return data;
   } catch (error) {
-    console.error("فشل تتبع الطلب:", error.message);
+    console.error("Failed to track order:", error.message);
     return null;
   }
 };
