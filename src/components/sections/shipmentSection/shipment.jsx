@@ -10,36 +10,52 @@ const Shipment = () => {
 
     const [order, setOrder] = useState("");
     const [message, setMessage] = useState("");
+    const [trackingData, setTrackingData] = useState(null); // To store the tracking data
 
     const content = {
         en: {
             title: "Track Shipment",
             placeholder: "Enter Tracking Number",
             buttonText: "Track Now",
-            errorMessage: "There was an issue with the server, please try again later."
+            errorMessage: "There was an issue with the server, please try again later.",
+            invalidTracking: "Invalid tracking number, please check and try again."
         },
         ar: {
             title: "تتبع الشحنة",
             placeholder: "أدخل رقم التتبع",
             buttonText: "تتبع الآن",
-            errorMessage: "هناك مشكلة في الخادم ، يرجى المحاولة لاحقًا."
+            errorMessage: "هناك مشكلة في الخادم ، يرجى المحاولة لاحقًا.",
+            invalidTracking: "رقم التتبع غير صالح ، يرجى التحقق والمحاولة مرة أخرى."
         }
     };
 
     const handleTrackOrder = async () => {
+        setMessage(""); // Reset any previous messages
+        setTrackingData(null); // Clear previous tracking data
+
         try {
             const data = await trackOrder(order);
             if (data === null) {
                 setMessage(content[language].errorMessage);
                 return;
             }
-            console.log(data);
+
+            if (data.length === 0) {
+                setMessage(content[language].invalidTracking);
+                return;
+            }
+
+            // Successfully received data, now set it
             const lastData = data[0];
             const TrackingStatus_Ar = lastData.TrackingStatus_Ar;
             const TrackingStatus_En = lastData.TrackingStatus_En;
             const note = lastData.Note;
 
-            // Further logic to display order status
+            setTrackingData({
+                status: language === "ar" ? TrackingStatus_Ar : TrackingStatus_En,
+                note: note
+            });
+
         } catch (error) {
             console.log(error);
             setMessage(content[language].errorMessage);
@@ -70,8 +86,20 @@ const Shipment = () => {
                     {content[language].buttonText}
                 </Button>
 
+                {/* Show error message if any */}
                 {message && (
                     <p className="mt-4 text-red-500 text-center">{message}</p>
+                )}
+
+                {/* Show tracking data if available */}
+                {trackingData && (
+                    <div className="mt-6 bg-white p-4 rounded-md shadow-md">
+                        <h3 className="font-bold text-lg mb-2">{language === "ar" ? "حالة الشحنة" : "Shipment Status"}</h3>
+                        <p className="text-sm text-gray-700">{trackingData.status}</p>
+                        {trackingData.note && (
+                            <p className="mt-2 text-sm text-gray-600">{trackingData.note}</p>
+                        )}
+                    </div>
                 )}
             </div>
         </div>
