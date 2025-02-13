@@ -12,8 +12,8 @@ export const TableRow = ({ children }) => (
     <tr className="border-b border-gray-200 text-center ">{children}</tr>
 );
 
-export const TableHead = ({ children }) => (
-    <th className="px-4 py-2  font-semibold text-center  ">{children}</th>
+export const TableHead = ({ children ,classname }) => (
+    <th className={`px-4 py-2 text-center ${classname}`}>{children}</th>
 );
 
 export const TableBody = ({ children }) => (

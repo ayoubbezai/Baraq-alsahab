@@ -45,7 +45,7 @@ const AddDeliveryPlaces = () => {
           <div className='flex mx-auto w-full items-start justify-start   overflow-auto'>
                 <table className='w-full overflow-auto bg-white'>                <TableHeader>
                     <TableRow>
-                        <TableHead>ID</TableHead>
+                        <TableHead classname={"hidden md:flex"}>ID</TableHead>
                         <TableHead>English Name</TableHead>
                         <TableHead>Arabic Name</TableHead>
                         <TableHead>Action</TableHead>
