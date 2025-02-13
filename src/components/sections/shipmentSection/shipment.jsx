@@ -11,7 +11,7 @@ const Shipment = () => {
     const { language } = useContext(LanguageContext);
 
     const [order, setOrder] = useState("");
-    const [message, setMessage] = useState("");
+    const [message, setMessage] = useState({ ar: "", en: "" }); // Message is an object with both ar and en
     const [trackingData, setTrackingData] = useState(null); // To store the tracking data
     const [isLoading, setIsLoading] = useState(false); // To manage loading state
     const [isModalOpen, setIsModalOpen] = useState(false); // To manage modal visibility
@@ -24,7 +24,8 @@ const Shipment = () => {
             errorMessage: "There was an issue with the server, please try again later.",
             invalidTracking: "Invalid tracking number, please check and try again.",
             emptyInputMessage: "Tracking number is empty, please try again later.",
-            statusLabel: "Shipment Status"
+            statusLabel: "Shipment Status",
+            successMessage: "Shipment data successfully retrieved!"
         },
         ar: {
             title: "تتبع الشحنة",
@@ -33,27 +34,34 @@ const Shipment = () => {
             errorMessage: "هناك مشكلة في الخادم ، يرجى المحاولة لاحقًا.",
             invalidTracking: "رقم التتبع غير صالح ، يرجى التحقق والمحاولة مرة أخرى.",
             emptyInputMessage: "رقم التتبع فارغ ، يرجى المحاولة لاحقًا.",
-            statusLabel: "حالة الشحنة"
+            statusLabel: "حالة الشحنة",
+            successMessage: "تم استرجاع بيانات الشحنة بنجاح!"
         }
     };
 
     const handleTrackOrder = async () => {
-        setMessage(""); // Reset any previous messages
+        setMessage({ ar: "", en: "" }); // Reset any previous messages
         setTrackingData(null); // Clear previous tracking data
         setIsLoading(true); // Start loading animation
         setIsModalOpen(true); // Open the modal
+
+        if (!order.trim()) {
+            setIsLoading(false);
+            setMessage({ ar: content["ar"].emptyInputMessage, en: content["en"].emptyInputMessage }); // Set empty input message
+            return;
+        }
 
         try {
             const data = await trackOrder(order);
             setIsLoading(false); // Stop loading animation
 
             if (data === null) {
-                setMessage(content[language].errorMessage);
+                setMessage({ ar: content["ar"].errorMessage, en: content["en"].errorMessage });
                 return;
             }
 
             if (data.length === 0) {
-                setMessage(content[language].invalidTracking);
+                setMessage({ ar: content["ar"].invalidTracking, en: content["en"].invalidTracking });
                 return;
             }
 
@@ -64,20 +72,22 @@ const Shipment = () => {
             const note = lastData.Note;
 
             setTrackingData({
-                status: language === "ar" ? TrackingStatus_Ar : TrackingStatus_En,
+                status: { ar: TrackingStatus_Ar, en: TrackingStatus_En },
                 note: note
             });
+
+            setMessage({ ar: content["ar"].successMessage, en: content["en"].successMessage }); // Set success message
 
         } catch (error) {
             console.log(error);
             setIsLoading(false); // Stop loading animation
-            setMessage(content[language].errorMessage);
+            setMessage({ ar: content["ar"].errorMessage, en: content["en"].errorMessage }); // Show error message
         }
     };
 
     const closeModal = () => {
         setIsModalOpen(false);
-        setMessage(""); // Clear any messages
+        setMessage({ ar: "", en: "" }); // Clear any messages
         setTrackingData(null); // Clear tracking data
     };
 
@@ -107,30 +117,26 @@ const Shipment = () => {
 
                 <Button
                     onClick={handleTrackOrder}
-                    className='w-full py-3 text-lg bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300'>
+                    className='w-full py-3 text-lg bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300'
+                    disabled={isLoading}
+                >
                     {content[language].buttonText}
                 </Button>
 
-                {/* Show loading spinner while fetching data */}
                 {isLoading && (
                     <div className="flex justify-center mt-4">
                         <BounceLoader size={50} color="#3498db" />
                     </div>
                 )}
 
-                {/* Show error message if any */}
-                {message && !isLoading && (
-                    <p className="mt-4 text-red-500 text-center">{message}</p>
-                )}
-
                 {/* Show tracking data if available */}
                 {trackingData && !isLoading && createPortal(
                     <div
                         id="modal-overlay"
-                        className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50"
+                        className={`fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50`}
                         onClick={handleClickOutside}
                     >
-                        <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+                        <div className={`bg-white relative p-6 rounded-lg shadow-lg flex flex-col justify-center items-end max-w-md w-full ${language === "ar" && "text-right"}`}>
                             <button
                                 onClick={closeModal}
                                 className="absolute top-2 right-2 text-gray-600 text-lg"
@@ -138,7 +144,7 @@ const Shipment = () => {
                                 ✕
                             </button>
                             <h3 className="font-bold text-lg mb-2">{content[language].statusLabel}</h3>
-                            <p className="text-sm text-gray-700">{trackingData.status}</p>
+                            <p className="text-sm text-gray-700">{trackingData.status[language]}</p>
                             {trackingData.note && (
                                 <p className="mt-2 text-sm text-gray-600">{trackingData.note}</p>
                             )}
@@ -147,22 +153,22 @@ const Shipment = () => {
                     document.body
                 )}
 
-                {/* Show error in the same modal style */}
-                {message && !isLoading && createPortal(
+                {/* Show success or error message in the modal */}
+                {message[language] && !isLoading && createPortal(
                     <div
                         id="modal-overlay"
                         className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50"
                         onClick={handleClickOutside}
                     >
-                        <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+                        <div className={`bg-white relative p-8 rounded-lg ${language === "ar" && "text-right"}  shadow-lg max-w-md w-5/6 md:w-full`}>
                             <button
                                 onClick={closeModal}
-                                className="absolute top-2 right-2 text-gray-600 text-lg"
+                                className="absolute top-3 left-4 text-gray-600 text-lg"
                             >
                                 ✕
                             </button>
-                            <h3 className="font-bold text-lg mb-2 text-red-500">{content[language].statusLabel}</h3>
-                            <p className="text-sm text-red-500">{message}</p>
+                            <h3 className="font-bold text-xl mb-4 text-primary">{content[language].statusLabel}</h3>
+                            <p className="text-base font-semibold text-red-500">{message[language]}</p>
                         </div>
                     </div>,
                     document.body
