@@ -4,6 +4,8 @@ import { Label } from "../../ui/label";
 import { Button } from "../../ui/button";
 import { LanguageContext } from '../../../states/LanguageContext';
 import { trackOrder } from '../../../services/shipmentTrack';
+import { createPortal } from 'react-dom';
+import { BounceLoader } from 'react-spinners'; // Using react-spinners for a simple loader
 
 const Shipment = () => {
     const { language } = useContext(LanguageContext);
@@ -11,6 +13,7 @@ const Shipment = () => {
     const [order, setOrder] = useState("");
     const [message, setMessage] = useState("");
     const [trackingData, setTrackingData] = useState(null); // To store the tracking data
+    const [isLoading, setIsLoading] = useState(false); // To manage loading state
 
     const content = {
         en: {
@@ -18,23 +21,28 @@ const Shipment = () => {
             placeholder: "Enter Tracking Number",
             buttonText: "Track Now",
             errorMessage: "There was an issue with the server, please try again later.",
-            invalidTracking: "Invalid tracking number, please check and try again."
+            invalidTracking: "Invalid tracking number, please check and try again.",
+            statusLabel: "Shipment Status"
         },
         ar: {
             title: "تتبع الشحنة",
             placeholder: "أدخل رقم التتبع",
             buttonText: "تتبع الآن",
             errorMessage: "هناك مشكلة في الخادم ، يرجى المحاولة لاحقًا.",
-            invalidTracking: "رقم التتبع غير صالح ، يرجى التحقق والمحاولة مرة أخرى."
+            invalidTracking: "رقم التتبع غير صالح ، يرجى التحقق والمحاولة مرة أخرى.",
+            statusLabel: "حالة الشحنة"
         }
     };
 
     const handleTrackOrder = async () => {
         setMessage(""); // Reset any previous messages
         setTrackingData(null); // Clear previous tracking data
+        setIsLoading(true); // Start loading animation
 
         try {
             const data = await trackOrder(order);
+            setIsLoading(false); // Stop loading animation
+
             if (data === null) {
                 setMessage(content[language].errorMessage);
                 return;
@@ -58,9 +66,10 @@ const Shipment = () => {
 
         } catch (error) {
             console.log(error);
+            setIsLoading(false); // Stop loading animation
             setMessage(content[language].errorMessage);
         }
-    }
+    };
 
     return (
         <div className={`flex bg-gray-100 flex-col items-center justify-center min-h-screen p-6 font-english ${language === "ar" ? "font-arabic text-right" : "text-left"}`}>
@@ -86,20 +95,30 @@ const Shipment = () => {
                     {content[language].buttonText}
                 </Button>
 
+                {/* Show loading spinner while fetching data */}
+                {isLoading && (
+                    <div className="flex justify-center mt-4">
+                        <BounceLoader size={50} color="#3498db" />
+                    </div>
+                )}
+
                 {/* Show error message if any */}
-                {message && (
+                {message && !isLoading && (
                     <p className="mt-4 text-red-500 text-center">{message}</p>
                 )}
 
                 {/* Show tracking data if available */}
-                {trackingData && (
-                    <div className="mt-6 bg-white p-4 rounded-md shadow-md">
-                        <h3 className="font-bold text-lg mb-2">{language === "ar" ? "حالة الشحنة" : "Shipment Status"}</h3>
-                        <p className="text-sm text-gray-700">{trackingData.status}</p>
-                        {trackingData.note && (
-                            <p className="mt-2 text-sm text-gray-600">{trackingData.note}</p>
-                        )}
-                    </div>
+                {trackingData && !isLoading && createPortal(
+                    <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50">
+                        <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+                            <h3 className="font-bold text-lg mb-2">{content[language].statusLabel}</h3>
+                            <p className="text-sm text-gray-700">{trackingData.status}</p>
+                            {trackingData.note && (
+                                <p className="mt-2 text-sm text-gray-600">{trackingData.note}</p>
+                            )}
+                        </div>
+                    </div>,
+                    document.body
                 )}
             </div>
         </div>
