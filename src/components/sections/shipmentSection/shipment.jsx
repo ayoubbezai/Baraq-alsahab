@@ -23,6 +23,7 @@ const Shipment = () => {
             buttonText: "Track Now",
             errorMessage: "There was an issue with the server, please try again later.",
             invalidTracking: "Invalid tracking number, please check and try again.",
+            emptyInputMessage: "Tracking number is empty, please try again later.",
             statusLabel: "Shipment Status"
         },
         ar: {
@@ -31,6 +32,7 @@ const Shipment = () => {
             buttonText: "تتبع الآن",
             errorMessage: "هناك مشكلة في الخادم ، يرجى المحاولة لاحقًا.",
             invalidTracking: "رقم التتبع غير صالح ، يرجى التحقق والمحاولة مرة أخرى.",
+            emptyInputMessage: "رقم التتبع فارغ ، يرجى المحاولة لاحقًا.",
             statusLabel: "حالة الشحنة"
         }
     };
