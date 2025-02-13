@@ -12,7 +12,7 @@ const contactInfo = {
 };
 
 const emailToken = {
-  email: "99c5e7f9-c94a-4e59-b83a-7f340a44433d",
+  email: "2ecf98e6-7c17-497d-bf86-7be47a7fdfa2",
 };
 
 export { socialMediaLink, contactInfo, emailToken };
