@@ -4,35 +4,16 @@ export const trackOrder = async (orderId) => {
     return null;
   }
 
-  // Use environment variable for the API key
-  const apiKey = import.meta.env.VITE_API_KEY;
-
-  // Check if the API key is defined
-  if (!apiKey) {
-    console.error("❌ Error: API key is missing! Ensure the following:");
-    console.error("1. The .env file is in the root of your project.");
-    console.error(
-      "2. The variable is prefixed with VITE_ (e.g., VITE_API_KEY)."
-    );
-    console.error(
-      "3. You have restarted the development server after adding the .env file."
-    );
-    return null;
-  }
-
   try {
-    // Use a CORS proxy to bypass CORS restrictions
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/"; // CORS proxy
-    const apiUrl = `https://rest.fizzpa.net/api/Tracking/${orderId}`; // Original API URL
-
-    const response = await fetch(proxyUrl + apiUrl, {
-      method: "GET",
-      headers: {
-        Authorization: apiKey, // Pass the API key directly
-        "Content-Type": "application/json",
-        Referer: "https://baraq-alsahab.vercel.app/", // Keep if required by the API
-      },
-    });
+    const response = await fetch(
+      `https://barq-backend.onrender.com/track/12345`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     console.log("Response Status:", response.status);
 
