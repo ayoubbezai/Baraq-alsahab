@@ -100,35 +100,7 @@ const Footer = () => {
                     </motion.div>
 
                     {/* Third Section - Social Media */}
-                    <motion.div
-                        variants={fadeIn}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className="flex flex-col justify-center items-center"
-                    >
-                        <h3 className="text-2xl font-semibold mb-6">
-                            {language === "ar" ? "تابعنا" : "Follow Us"}
-                        </h3>
-                        <div className="flex space-x-4">
-                            {[
-                                { icon: <FaFacebookF />, link: socialMediaLink.Facebook },
-                                { icon: <FaTwitter />, link: "https://twitter.com" },
-                                { icon: <FaInstagram />, link: "https://instagram.com" },
-                                { icon: <FaLinkedin />, link: "https://linkedin.com" }
-                            ].map((item, index) => (
-                                <motion.a
-                                    key={index}
-                                    href={item.link}
-                                    className="text-gray-400 hover:text-white text-xl p-2 rounded-full border border-gray-400 hover:border-white transition"
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                >
-                                    {item.icon}
-                                </motion.a>
-                            ))}
-                        </div>
-                    </motion.div>
+                   
                 </div>
 
                 {/* Copyright Section */}
