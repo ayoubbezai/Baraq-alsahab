@@ -136,7 +136,7 @@ const Shipment = () => {
                         className={`fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50`}
                         onClick={handleClickOutside}
                     >
-                        <div className={`bg-white relative p-7 rounded-lg shadow-lg flex flex-col justify-center items-end max-w-md w-5/6 md:w-full ${language === "ar" && "text-right"}`}>
+                        <div className={`bg-white relative p-8 rounded-lg ${language === "ar" && "text-right"}  shadow-lg max-w-md w-5/6 md:w-full`}>
                             <button
                                 onClick={closeModal}
                                 className={`absolute top-3 ${language === "ar" ? "left-4 " : "right-4"} text-gray-600 text-lg`}                            >
