@@ -54,9 +54,9 @@ const AddDeliveryPlaces = () => {
                 <TableBody>
                     {cities.map((city) => (
                         <TableRow key={city.id}>
-                            <TableCell>{city.id}</TableCell>
+                            <TableCell classname={"hidden md:flex"}>{city.id}</TableCell>
                             <TableCell>{city.en}</TableCell>
-                            <TableCell className="text-right">{city.ar}</TableCell>
+                            <TableCell classname="text-right">{city.ar}</TableCell>
                             <TableCell>
                                 <Button
                                     variant={city.isOpen ? "secondary" : "default"}

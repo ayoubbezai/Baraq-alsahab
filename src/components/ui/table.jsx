@@ -20,6 +20,6 @@ export const TableBody = ({ children }) => (
     <tbody >{children}</tbody>
 );
 
-export const TableCell = ({ children }) => (
-    <td className="px-4 py-2">{children}</td>
+export const TableCell = ({ children, classname }) => (
+    <td className={`px-4 py-2 ${classname}`}>{children}</td>
 );
