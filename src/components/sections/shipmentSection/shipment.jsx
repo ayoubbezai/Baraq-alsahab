@@ -14,6 +14,7 @@ const Shipment = () => {
     const [message, setMessage] = useState("");
     const [trackingData, setTrackingData] = useState(null); // To store the tracking data
     const [isLoading, setIsLoading] = useState(false); // To manage loading state
+    const [isModalOpen, setIsModalOpen] = useState(false); // To manage modal visibility
 
     const content = {
         en: {
@@ -38,6 +39,7 @@ const Shipment = () => {
         setMessage(""); // Reset any previous messages
         setTrackingData(null); // Clear previous tracking data
         setIsLoading(true); // Start loading animation
+        setIsModalOpen(true); // Open the modal
 
         try {
             const data = await trackOrder(order);
@@ -68,6 +70,18 @@ const Shipment = () => {
             console.log(error);
             setIsLoading(false); // Stop loading animation
             setMessage(content[language].errorMessage);
+        }
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setMessage(""); // Clear any messages
+        setTrackingData(null); // Clear tracking data
+    };
+
+    const handleClickOutside = (e) => {
+        if (e.target.id === 'modal-overlay') {
+            closeModal(); // Close the modal if the overlay is clicked
         }
     };
 
@@ -109,13 +123,44 @@ const Shipment = () => {
 
                 {/* Show tracking data if available */}
                 {trackingData && !isLoading && createPortal(
-                    <div className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50">
+                    <div
+                        id="modal-overlay"
+                        className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50"
+                        onClick={handleClickOutside}
+                    >
                         <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+                            <button
+                                onClick={closeModal}
+                                className="absolute top-2 right-2 text-gray-600 text-lg"
+                            >
+                                ✕
+                            </button>
                             <h3 className="font-bold text-lg mb-2">{content[language].statusLabel}</h3>
                             <p className="text-sm text-gray-700">{trackingData.status}</p>
                             {trackingData.note && (
                                 <p className="mt-2 text-sm text-gray-600">{trackingData.note}</p>
                             )}
+                        </div>
+                    </div>,
+                    document.body
+                )}
+
+                {/* Show error in the same modal style */}
+                {message && !isLoading && createPortal(
+                    <div
+                        id="modal-overlay"
+                        className="fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50"
+                        onClick={handleClickOutside}
+                    >
+                        <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+                            <button
+                                onClick={closeModal}
+                                className="absolute top-2 right-2 text-gray-600 text-lg"
+                            >
+                                ✕
+                            </button>
+                            <h3 className="font-bold text-lg mb-2 text-red-500">{content[language].statusLabel}</h3>
+                            <p className="text-sm text-red-500">{message}</p>
                         </div>
                     </div>,
                     document.body
