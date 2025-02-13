@@ -136,17 +136,16 @@ const Shipment = () => {
                         className={`fixed top-0 left-0 right-0 bottom-0 flex items-center justify-center bg-black bg-opacity-50`}
                         onClick={handleClickOutside}
                     >
-                        <div className={`bg-white relative p-6 rounded-lg shadow-lg flex flex-col justify-center items-end max-w-md w-full ${language === "ar" && "text-right"}`}>
+                        <div className={`bg-white relative p-7 rounded-lg shadow-lg flex flex-col justify-center items-end max-w-md w-5/6 md:w-full ${language === "ar" && "text-right"}`}>
                             <button
                                 onClick={closeModal}
-                                className="absolute top-2 right-2 text-gray-600 text-lg"
-                            >
+                                className={`absolute top-3 ${language === "ar" ? "left-4 " : "right-4"} text-gray-600 text-lg`}                            >
                                 ✕
                             </button>
                             <h3 className="font-bold text-lg mb-2">{content[language].statusLabel}</h3>
-                            <p className="text-sm text-gray-700">{trackingData.status[language]}</p>
+                            <p className="text-base font-semibold text-gray-700">{trackingData.status[language]}</p>
                             {trackingData.note && (
-                                <p className="mt-2 text-sm text-gray-600">{trackingData.note}</p>
+                                <p className="mt-2 text-base  text-gray-600">{trackingData.note}</p>
                             )}
                         </div>
                     </div>,
@@ -163,7 +162,7 @@ const Shipment = () => {
                         <div className={`bg-white relative p-8 rounded-lg ${language === "ar" && "text-right"}  shadow-lg max-w-md w-5/6 md:w-full`}>
                             <button
                                 onClick={closeModal}
-                                className="absolute top-3 left-4 text-gray-600 text-lg"
+                                className={`absolute top-3 ${language === "ar" ? "left-4 " : "right-4"} text-gray-600 text-lg`}
                             >
                                 ✕
                             </button>
