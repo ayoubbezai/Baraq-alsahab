@@ -23,8 +23,8 @@ const HeroSection = () => {
     return (
         <div className='pt-2 bg-gray-100'>
             <section
-                className={`hero-section mt-12 overflow-hidden w-full flex justify-center items-start z-0 font-english 
-                ${language === "ar" && "font-arabic"} text-white text-center p-6 py-12 relative h-screen md:h-[90vh]`}
+                className={`hero-section mt-2 overflow-hidden w-full flex justify-center items-center md:items-start md:mt-12 z-0 font-english 
+                ${language === "ar" && "font-arabic"} text-white text-center p-6 py-12 relative h-[90vh]`}
                 style={{
                     backgroundImage: `url(${isMobile ? BackgroundPhone : Background})`,
                     backgroundSize: 'cover',
