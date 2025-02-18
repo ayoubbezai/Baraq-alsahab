@@ -18,7 +18,7 @@ const Footer = () => {
     return (
         <>
             {/* Animated Triangles */}
-            <div className={`flex bg-gray-100`}>
+            <div className={`flex bg-`}>
                 {/* Left Triangle (Upside Down) */}
                 <motion.div
                     initial={{ x: -60, opacity: 0 }}
@@ -100,7 +100,7 @@ const Footer = () => {
                     </motion.div>
 
                     {/* Third Section - Social Media */}
-                   
+
                 </div>
 
                 {/* Copyright Section */}

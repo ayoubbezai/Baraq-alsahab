@@ -8,6 +8,7 @@ import OurServices from "../components/sections/mainSection/OurServices"
 import SectorsSection from "../components/sections/mainSection/SectorsSection"
 import HowWeWork from "../components/sections/mainSection/HowWeWork"
 import JoinUsSection from "../components/sections/mainSection/JoinUsSection"
+import Accordion from '../components/sections/mainSection/Accordion';
 const Landing = () => {
   return (
     <>
@@ -19,6 +20,7 @@ const Landing = () => {
       <OurServices />
       <SectorsSection />
       <HowWeWork />
+      <Accordion />
     </>
   )
 }
