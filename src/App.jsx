@@ -21,10 +21,11 @@ import CompaniesArchivedetails from './pages/CompaniesArchivedetails';
 import DelegateArchiveDetails from './pages/DelegateArchiveDetails';
 import Places from './pages/Places';
 import ChangeDeliveryPlaces from './pages/ChangeDeliveryPlaces';
+import QuestionsPage from './pages/QuestionsPage';
 
 function Layout() {
     const location = useLocation();
-    const showNavAndFooter = location.pathname === '/' || location.pathname === '/joinUs' || location.pathname === '/shipment' || location.pathname === '/sectors';
+    const showNavAndFooter = location.pathname === '/' || location.pathname === '/joinUs' || location.pathname === '/shipment' || location.pathname === '/sectors' || location.pathname === '/questions';
 
     return (
         <>
@@ -36,6 +37,7 @@ function Layout() {
                 <Route path="/shipment" element={<Trackshipment />} />
                 <Route path="/admin" element={<AdminLogin />} />
                 <Route path="/sectors" element={<Sectors />} />
+                <Route path="/questions" element={<QuestionsPage />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
                 <Route element={<ProtectedRoute />}>
                     <Route path="/delegates" element={<Dashboard />} />

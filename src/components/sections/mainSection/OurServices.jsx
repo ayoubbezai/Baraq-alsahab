@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { LanguageContext } from "../../../states/LanguageContext";
 import ourServicesContent from "../../../content/ourServices";
 import { motion } from "framer-motion";
-import { Truck, ShoppingCart, Package } from "lucide-react";
+import { Truck, ShoppingCart, Package,PersonStandingIcon } from "lucide-react";
 
 // Define icons based on service titles (all icons size 22)
 const iconMap = {

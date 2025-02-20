@@ -18,6 +18,11 @@ const ourServicesContent = {
         content:
           "Freight shipping with Bariq Al Sahab provides you with extensive transportation and shipping solutions worldwide through our specialized experts in the Middle East. We offer fast delivery, flexible options, and cost-effective solutions to meet your business requirements. Additionally, we provide integrated customs services to help reduce complexity, delays, and penalties through our technical expertise, brokerage services, and comprehensive consulting.",
       },
+      {
+        title: "Individual Services",
+        content:
+          "We provide pickup and delivery of parcels from homes and hotels on your behalf, shipping them worldwide without the need to visit our branches. Simply contact us through social media, and we’ll handle the rest.",
+      },
     ],
   },
   ar: {
@@ -38,6 +43,11 @@ const ourServicesContent = {
         title: "شحن البضائع",
         content:
           "شحن البضائع مع برق السحاب يوفر لك حلول نقل وشحن واسعة النطاق حول أنحاء العالم، من خلال خبراء مختصين في الشرق الأوسط. نقدم لك سرعة التوصيل وخيارات مرنة وفعالة من حيث التكلفة لتلبية متطلبات أعمالك. بالإضافة إلى ذلك، نوفر خدمات متكاملة للجمارك، مما يساعد على تقليل التعقيد والتأخير والعقوبات من خلال خبرتنا الفنية وخدمات الوساطة والاستشارات الشاملة.",
+      },
+      {
+        title: "خدمات الأفراد",
+        content:
+          "استلام وتسليم الطرود من المنازل والفنادق (نيابة عنك) وشحنها لجميع أنحاء العالم من دون زيارة الفروع، فقط من خلال التواصل معنا عبر وسائل التواصل الاجتماعية.",
       },
     ],
   },

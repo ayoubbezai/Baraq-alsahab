@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 import { LanguageContext } from "../../states/LanguageContext";
 import arabicLogo from "../../assets/logo/logo arabic yellow.svg";
 import englishLogo from "../../assets/logo/logo english yellow.svg";
 import { motion } from "framer-motion";
-import { socialMediaLink, contactInfo } from "../../content/footerContent";
+import { contactInfo } from "../../content/footerContent";
 import clientRights from "../../assets/pdfs/حقوق العملاء.pdf"
 import privacy from "../../assets/pdfs/سياسة الخصوصية.pdf"
 const fadeIn = {
@@ -81,11 +83,13 @@ const Footer = () => {
                             {language === "ar" ? "المزيد عنا" : "More About Us"}
                         </h3>
                         <ul className="space-y-2">
+
                             <li>
-                                <a href="/" className="text-gray-300 hover:text-gray-100">
-                                    {language === "ar" ? "من نحن" : "About Us"}
-                                </a>
+                                <Link to="/questions" className="text-gray-300 hover:text-gray-100">
+                                    {language === "ar" ? "الأسئلة الشائعة" : "FAQs"}
+                                </Link>
                             </li>
+
                             <li>
                                 <a href={clientRights} className="text-gray-300 hover:text-gray-100" download>
                                     {language === "ar" ? "حقوق العملاء" : "Customer Rights"}

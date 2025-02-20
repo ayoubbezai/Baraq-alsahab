@@ -18,8 +18,8 @@ const Accordion = () => {
     }));
 
     return (
-        <div className="max-w-2xl mx-auto my-10 p-4">
-            <h1 className="text-2xl font-semibold text-gray-600 text-center mb-8">
+        <div className="max-w-2xl mx-auto py-28 px-4">
+            <h1 className="text-2xl font-semibold text-primary text-center mb-8">
                 {language === 'ar'
                     ? "اطلع على قسم الأسئلة الشائعة لمعرفة المزيد عن خدماتنا."
                     : "Check out the FAQ section to learn more about our services."}
